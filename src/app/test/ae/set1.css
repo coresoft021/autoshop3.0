@@ -1,34 +1,13 @@
-.timediv
-{
-    width: 102%;
-    text-align: center;
-    margin-left: -1%;
-    height: 20%;
-    background-color: #e9efdd;
-    border: 1px solid powderblue;
-    border-radius: 8px;
-}
-.qesdiv
-{
-background-color: wheat;
-       width: 102%;
-    height: 50%;
-    margin-left: -1%;
-}
 
-
-.example-radio-group {
-  display: inline-flex;
+.example-container {
+  display: flex;
   flex-direction: column;
 }
 
-.example-radio-button {
-  margin: 5px;
+.example-container > * {
+  width: 100%;
 }
 
-.example-selected-value {
-  margin: 15px 0;
-}
 
 .bottom
 {
@@ -42,21 +21,6 @@ width: 100%;
 }
 
 
-.prev
-{
-   
-}
-.next
-{
-
-   
-}
-.plane
-{
-      
-    background-color: burlywood;
-    min-height: 10%;
-}
 .footer
 {
        position: absolute;
