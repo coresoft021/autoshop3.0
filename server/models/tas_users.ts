@@ -20,11 +20,7 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       type: Sequelize.INTEGER(11),
       allowNull: true
     },
-  MARK: {
-      type: Sequelize.INTEGER(11),
-      allowNull: true
-    },
- 
+  
   }, {
     tableName: 'tas_users',
      timestamps: false
