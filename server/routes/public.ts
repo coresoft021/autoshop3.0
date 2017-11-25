@@ -49,10 +49,9 @@ then(users => {
  Tas_users.sync({force: true}).then(() => {
   //Table created
   return Tas_users.create({
-    NAME: 'Prems021',
-    CODE: 11,
-    MARK: 100,
-    PASSWORD: 'arshavin021'
+    NAME: 'q',
+    CODE: 1,
+    PASSWORD: 'a'
      });
  });
    
