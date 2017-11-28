@@ -1,40 +1,27 @@
-.inum
-{
-    display: inline-block;
-    background-color: snow;
-    margin: 12px;
-}
-.example-form {
-  width: 500px;
+.topnav {
+  overflow: hidden;
+  background-color: #333;
 }
 
-.example-full-width {
-  width: 100%;
-}
-.header_div
-{
-text-align: center;
-    background-color: turquoise;
-}
-.ae_div
-{
-    background-color: burlywood;
-    min-height: 44px;
-    padding: 12px;
-    font-size: 21px;
-    font-family: cursive;
-   border-bottom: 1px solid grey;
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
 }
 
-.com_div
-{
-  background-color: lime;
-    min-height: 44px;
-    padding: 12px;
-    font-size: 21px;
-  border-bottom: 1px solid grey;
-    font-family: cursive;
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
 }
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
 .lo_div
 {
       background-color: #ded8d0;
