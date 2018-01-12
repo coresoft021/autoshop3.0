@@ -72,6 +72,19 @@ publicRouter.post('/add_user', (request: Request, response: Response) => {
      
  });
 
+publicRouter.post('/add_new_product', (request: Request, response: Response) => {
+ Tas_products.create({
+    PRODUCT_NAME: request.body.product_name,
+    CODE: request.body.code,
+    PRICE: request.body.price,
+    GST_SLAB: request.body.gst_slab
+  
+     })
+     
+  return response.json({success:true, msg:'Successfully saved'});
+     
+ });
+
 
  publicRouter.post('/add_test', (request: Request, response: Response) => {
  Tas_users.create({
