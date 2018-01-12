@@ -7,4 +7,3 @@ var sequelize = new Sequelize('postgres://etaqmobqletrrd:01e51d39889a89dd5aa428e
 
 
 export {   Sequelize, sequelize };
-
