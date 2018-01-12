@@ -2,7 +2,7 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
 
   const Tas_products = sequelize.define('tas_products', {
     ID: {
-      type: Sequelize.INTEGER(6),
+      type: Sequelize.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
@@ -16,7 +16,7 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       allowNull: false
     },
       PRICE: {
-      type: Sequelize.INTEGER(6),
+      type: Sequelize.INTEGER,
       allowNull: false
     },
     
