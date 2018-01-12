@@ -1,5 +1,6 @@
 import { Request, Response, Router } from "express";
 import { Tas_users } from '../models/tas_users';
+import { Tas_users } from '../models/tas_products';
 import { Sequelize, sequelize } from './dbcon';
 const publicRouter: Router = Router();
 
@@ -44,9 +45,9 @@ then(users => {
 });
 
  publicRouter.get('/create_pdt_table', (request: Request, response: Response) => {
- Tas_users.sync({force: true}).then(() => {
+ Tas_products.sync({force: true}).then(() => {
   //Table created
-  return Tas_users.create({
+  return Tas_products.create({
     PRODUCT_NAME: 'Prems021',
     CODE: 'B11',
     PRICE: 100,
