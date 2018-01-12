@@ -1,6 +1,5 @@
 import { Request, Response, Router } from "express";
 import { Tas_users } from '../models/tas_users';
-import { Tas_marks } from '../models/tas-marks';
 import { Sequelize, sequelize } from './dbcon';
 const publicRouter: Router = Router();
 
@@ -27,21 +26,7 @@ then(users => {
 });
 });
 
-publicRouter.get('/list_mark', (request: Request, response: Response) => {
- 
 
-// force: true will drop the table if it already exists
-  
-  Tas_marks.findAll({
-  attributes: ['ID','NAME','TESTNUM','MARK']
-}).
-then(users => {
-  response.json({
-  users
-  });
- 
-});
-});
 
 
 
@@ -49,38 +34,30 @@ then(users => {
  Tas_users.sync({force: true}).then(() => {
   //Table created
   return Tas_users.create({
-    NAME: 'q',
-    CODE: 1,
-    PASSWORD: 'a'
+    NAME: 'Prems021',
+    CODE: 11,
+    MARK: 100,
+    PASSWORD: 'arshavin021'
+     });
+ });
+   
+});
+
+ publicRouter.get('/create_pdt_table', (request: Request, response: Response) => {
+ Tas_users.sync({force: true}).then(() => {
+  //Table created
+  return Tas_users.create({
+    PRODUCT_NAME: 'Prems021',
+    CODE: 'B11',
+    PRICE: 100,
+    GST_SLAB: '0'
      });
  });
    
 });
 
 
- publicRouter.get('/create_marks_table', (request: Request, response: Response) => {
- Tas_marks.sync({force: true}).then(() => {
-  //Table created
-  return Tas_marks.create({
-    NAME: 'Prems021',
-    TESTNUM: 11,
-    MARK: 100
-    
-     });
- });
-   
- });
-
- publicRouter.post('/submit_exam', (request: Request, response: Response) => {
- Tas_marks.create({
-     NAME: request.body.names,
-    TESTNUM: request.body.testnum,
-    MARK: request.body.mark
-     })
-     
-  return response.json({success:true, msg:'Successfully saved'});
-     
- });
+ 
 
 publicRouter.post('/add_user', (request: Request, response: Response) => {
  Tas_users.create({
