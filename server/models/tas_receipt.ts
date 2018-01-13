@@ -16,6 +16,11 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       type: Sequelize.STRING,
       allowNull: false
     },
+    QUANTITY: {
+       type: Sequelize.INTEGER,
+    allowNull: false
+    },
+      
     TAS_MASTER_ID: {
     type: Sequelize.INTEGER,
     allowNull: false
