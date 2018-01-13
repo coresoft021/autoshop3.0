@@ -26,6 +26,20 @@ then(users => {
 });
 });
 
+publicRouter.get('/list_mark', (request: Request, response: Response) => {
+ 
+
+// force: true will drop the table if it already exists
+  
+  Tas_receipts.findAll({
+  attributes: ['ID']
+}).
+then(users => {
+  response.send(users);
+ 
+});
+});
+
 
 
 
