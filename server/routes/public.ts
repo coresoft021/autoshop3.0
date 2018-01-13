@@ -12,21 +12,22 @@ publicRouter.get("/simple", (request: Request, response: Response) => {
   });
 });
 
-publicRouter.get('/list', (request: Request, response: Response) => {
+publicRouter.get('/get_product_list', (request: Request, response: Response) => {
  
 
 // force: true will drop the table if it already exists
   
   Tas_users.findAll({
-  attributes: ['ID','NAME','PASSWORD','CODE','MARK']
+  attributes: ['ID','PRODUCT_NAME','CODE','PRICE','GST_SLAB']
 }).
 then(users => {
-  response.json({
-  users
-  });
+  response.send(users);
  
 });
 });
+
+
+
 
 
 
