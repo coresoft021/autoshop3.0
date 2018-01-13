@@ -1,6 +1,6 @@
 import {  sequelize , Sequelize } from '../routes/dbcon';
 
-  const Tas_receipts = sequelize.define('tas_products', {
+  const Tas_receipts = sequelize.define('tas_receipts', {
     ID: {
       type: Sequelize.INTEGER,
       allowNull: false,
@@ -23,7 +23,7 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
      TAS_SLAVE_ID: {
     type: Sequelize.INTEGER,
     allowNull: true
-    }
+    },
    
       PRICE: {
       type: Sequelize.INTEGER,
@@ -36,9 +36,9 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
     },
   
   }, {
-    tableName: 'tas_products',
+    tableName: 'tas_receipts',
      timestamps: true
   });
 
 
-export {Tas_products};
+export {Tas_receipts};
