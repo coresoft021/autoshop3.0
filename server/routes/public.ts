@@ -61,9 +61,9 @@ then(users => {
  
 
  publicRouter.get('/create_receipts_table', (request: Request, response: Response) => {
- Tas_products.sync({force: true}).then(() => {
+ Tas_receipts.sync({force: true}).then(() => {
   //Table created
-  return Tas_products.create({
+  return Tas_receipts.create({
     CUSTOMER_NAME: 'Mike',
     PRODUCT_NAME: 'paraceptamol',
     QUANTITY: 1,
