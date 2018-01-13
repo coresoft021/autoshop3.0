@@ -60,6 +60,24 @@ then(users => {
 
  
 
+ publicRouter.get('/create_receipts_table', (request: Request, response: Response) => {
+ Tas_products.sync({force: true}).then(() => {
+  //Table created
+  return Tas_products.create({
+    CUSTOMER_NAME: 'Mike',
+    PRODUCT_NAME: 'paraceptamol',
+    QUANTITY: 1,
+    TAS_MASTER_ID:1,
+    TAS_SLAVE_ID:1,
+    PRICE:100,
+    GST_SLAB: '0'
+     });
+ });
+   
+});
+
+
+
 publicRouter.post('/add_user', (request: Request, response: Response) => {
  Tas_users.create({
     NAME: request.body.username,
