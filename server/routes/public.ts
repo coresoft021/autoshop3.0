@@ -26,6 +26,20 @@ then(users => {
 });
 });
 
+publicRouter.get('/get_pdt_list', (request: Request, response: Response) => {
+ 
+
+// force: true will drop the table if it already exists
+  
+  Tas_products.findAll({
+  attributes: ['PRODUCT_NAME']
+}).
+then(users => {
+  response.send(users);
+ 
+});
+});
+
 publicRouter.get('/list_receipts', (request: Request, response: Response) => {
  
 
