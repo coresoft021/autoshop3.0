@@ -17,7 +17,7 @@ publicRouter.get('/get_product_list', (request: Request, response: Response) => 
 
 // force: true will drop the table if it already exists
   
-  Tas_receipts.findAll({
+  Tas_products.findAll({
   attributes: ['ID','PRODUCT_NAME','CODE','PRICE','GST_SLAB']
 }).
 then(users => {
@@ -26,13 +26,13 @@ then(users => {
 });
 });
 
-publicRouter.get('/list_mark', (request: Request, response: Response) => {
+publicRouter.get('/list_receipts', (request: Request, response: Response) => {
  
 
 // force: true will drop the table if it already exists
   
   Tas_receipts.findAll({
-  attributes: ['ID']
+  attributes: ['ID','CUSTOMER_NAME','PRODUCT_NAME','QUANTITY','TAS_MASTER_ID','TAS_SLAVE_ID','PRICE','GST_SLAB']
 }).
 then(users => {
   response.send(users);
