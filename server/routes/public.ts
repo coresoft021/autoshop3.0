@@ -2,7 +2,7 @@ import { Request, Response, Router } from "express";
 import { Tas_users } from '../models/tas_users';
 import { Tas_products } from '../models/tas_product';
 import { Tas_receipts } from '../models/tas_receipt';
-//import { Tas_invoice_history } from '../models/tas_invoice_history';
+import { Tas_invoice_history } from '../models/tas_invoice_history';
 import { Sequelize, sequelize } from './dbcon';
 const publicRouter: Router = Router();
 
@@ -107,20 +107,20 @@ then(users => {
    
 });
 
-//  publicRouter.get('/create_invoice_table', (request: Request, response: Response) => {
-//  Tas_invoice_history.sync({force: true}).then(() => {
-//   //Table created
-//   return Tas_users.create({
-//     INVOICE_NUMBER: 0,
-//     CUSTOMER_NAME:'prem',
-//     SUB_TOTAL:0,
-//     TAX_COLLECTED:0,
-//     GROSS_TOTAL:0
+  publicRouter.get('/create_invoice_table', (request: Request, response: Response) => {
+ Tas_invoice_history.sync({force: true}).then(() => {
+  //Table created
+  return Tas_invoice_history.create({
+    INVOICE_NUMBER: 0,
+    CUSTOMER_NAME:'prem',
+    SUB_TOTAL:0,
+     TAX_COLLECTED:0,
+     GROSS_TOTAL:0
        
-//      });
-//  });
+     });
+  });
    
-// });
+ });
 
 publicRouter.post('/add_user', (request: Request, response: Response) => {
  Tas_users.create({
