@@ -8,7 +8,7 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       autoIncrement: true
     },
     INVOICE_NUMBER: {
-      type: Sequelize.NUMBER,
+      type: Sequelize.INTEGER,
       allowNull: false
     },
     CUSTOMER_NAME: {
