@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
-import { AdduserComponent } from './dash/adduser';
+import { CustomerCreateComponent } from './dash/adduser';
 import { AppRoutingModule } from './app.router';
 import { DashComponent } from './dash/dash';
 import { LoginComponent } from './login/login';
@@ -31,7 +31,7 @@ import {
 
 @NgModule({
   declarations: [
-    AppComponent,LoginComponent,DashComponent,Set1Component,AdduserComponent,AeSet1Component,SubmitComponent,SelectExam,Set2Component
+    AppComponent,LoginComponent,DashComponent,Set1Component,CustomerCreateComponent,AeSet1Component,SubmitComponent,SelectExam,Set2Component
   ],
        providers: [ AuthenticationService ],
   imports: [
