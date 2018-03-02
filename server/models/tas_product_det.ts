@@ -16,19 +16,19 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       allowNull: false
     },
       BATCH: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.STRING,
       allowNull: false
     },
       HSN: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.STRING,
       allowNull: false
     },
       DATEOFPUR: {
-      type: Sequelize.DATE,
+      type: Sequelize.DATEONLY,
       allowNull: false
     },
       DATEOFEXP: {
-      type: Sequelize.DATE,
+      type: Sequelize.DATEONLY,
       allowNull: false
     },
     
