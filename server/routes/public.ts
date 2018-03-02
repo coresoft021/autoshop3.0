@@ -164,7 +164,20 @@ publicRouter.post('/add_new_product', (request: Request, response: Response) => 
    
 });
 
-
+publicRouter.post('/add_product_det', (request: Request, response: Response) => {
+ Tas_product_det.create({
+    PRODUCT_NAME: request.body.Productname,
+    CODE: 'b11',
+    BATCH: request.body.Batch_number,
+    HSN: request.body.HSN,
+    DATEOFPUR: request.body.purchase_date,
+    DATEOFEXP: request.body.exp_date,
+  
+     })
+     
+  return response.json({success:true, msg:'Successfully saved'});
+     
+ });
 
   publicRouter.post('/login_check', (request: Request, response: Response) => {
    var username = request.body.username;
