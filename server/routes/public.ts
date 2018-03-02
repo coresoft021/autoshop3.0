@@ -41,6 +41,7 @@ then(users => {
   response.send(users);
  
 });
+  
 });
 
 publicRouter.get('/list_receipts', (request: Request, response: Response) => {
@@ -149,18 +150,21 @@ publicRouter.post('/add_new_product', (request: Request, response: Response) => 
      
  });
 
-
- publicRouter.post('/add_test', (request: Request, response: Response) => {
- Tas_users.create({
-    NAME: 'hi',
-    CODE: 12,
-    MARK: 10,
-    PASSWORD: 'me'
-     })
-     
-  return response.json({success:true, msg:'Successfully saved'});
-     
+ publicRouter.get('/create_pdt_table_det', (request: Request, response: Response) => {
+ Tas_product_det.sync({force: true}).then(() => {
+  return Tas_product_det.create({
+    PRODUCT_NAME: 'Prems021',
+    CODE: 'B11',
+    BATCH: 100,
+    HSN: 2,
+    DATEOFPUR: new Date(1980, 6, 20),
+    DATEOFEXP: new Date(1980, 6, 20)
+     });
  });
+   
+});
+
+
 
   publicRouter.post('/login_check', (request: Request, response: Response) => {
    var username = request.body.username;
