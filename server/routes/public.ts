@@ -3,6 +3,8 @@ import { Tas_users } from '../models/tas_users';
 import { Tas_products } from '../models/tas_product';
 import { Tas_receipts } from '../models/tas_receipt';
 import { Tas_invoice_history  } from '../models/invo_history';
+import { Tas_product_det } from '../models/tas_product_det';
+
 import { Sequelize, sequelize } from './dbcon';
 const publicRouter: Router = Router();
 
