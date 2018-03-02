@@ -6,7 +6,7 @@ import {FormGroup, FormBuilder} from "@angular/forms";
 
 @Component({
   selector: 'app-customer-create',
-  templateUrl: './add-user.html',
+  templateUrl: './adduser.html',
   styleUrls: ['./dash.css']
 })
 export class CustomerCreateComponent implements OnInit {
