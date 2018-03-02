@@ -11,7 +11,7 @@ import {FormGroup, FormBuilder} from "@angular/forms";
 })
 export class CustomerCreateComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private customerService: CustomerService, private productService: ProductService, private areaService: AreaService) {
+  constructor(private fb: FormBuilder) {
   }
 
   ngOnInit() {
