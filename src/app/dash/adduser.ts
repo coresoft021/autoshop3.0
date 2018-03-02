@@ -1,10 +1,10 @@
 import {Component, OnInit, ElementRef} from '@angular/core';
 import {FormGroup, FormBuilder} from "@angular/forms";
-import {CustomerService} from '../customer.service';
-import * as _ from 'underscore';
-import {Customer} from '../customer';
-import {ProductService} from '../../product/product.service';
-import {AreaService} from '../../area/area.service';
+
+
+
+
+
 
 @Component({
   selector: 'app-customer-create',
