@@ -24,11 +24,11 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       allowNull: false
     },
       DATEOFPUR: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.DATE,
       allowNull: false
     },
       DATEOFEXP: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.DATE,
       allowNull: false
     },
     
