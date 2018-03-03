@@ -9,27 +9,27 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
     },
     PRODUCT_NAME: {
       type: Sequelize.STRING,
-      allowNull: false
+      allowNull: true
     },
     CODE: {
       type: Sequelize.STRING,
-      allowNull: false
+      allowNull: true
     },
       BATCH: {
       type: Sequelize.STRING,
-      allowNull: false
+      allowNull: true
     },
       HSN: {
       type: Sequelize.STRING,
-      allowNull: false
+      allowNull: true
     },
       DATEOFPUR: {
       type: Sequelize.DATEONLY,
-      allowNull: false
+      allowNull: true
     },
       DATEOFEXP: {
       type: Sequelize.DATEONLY,
-      allowNull: false
+      allowNull: true
     },
     
    
