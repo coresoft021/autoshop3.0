@@ -7,7 +7,7 @@ import { Tas_product_det } from '../models/tas_product_det';
 
 import { Sequelize, sequelize } from './dbcon';
 const publicRouter: Router = Router();
-
+const Op = Sequelize.Op;
 publicRouter.get("/simple", (request: Request, response: Response) => {
   response.json({
     text: "Hello Angular 2",
