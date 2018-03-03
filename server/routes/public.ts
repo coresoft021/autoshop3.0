@@ -113,7 +113,7 @@ then(users => {
 publicRouter.post('/list_expired_products_between', (request: Request, response: Response) => {
   Tas_product_det.findAll({
   attributes: ['ID','PRODUCT_NAME','DATEOFEXP'],
-     where: {  DATEOFEXP: {  [Op.lt]: request.body.to_date } , DATEOFEXP: { [Op.gt]: request.body.from_date }, }
+     where: {  DATEOFEXP: {  [Op.lt]: request.body.to_date , { [Op.gt]: request.body.from_date  }}
 }).
 then(users => {
   response.send(users);
