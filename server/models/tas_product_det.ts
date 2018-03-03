@@ -9,7 +9,7 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
     },
     PRODUCT_NAME: {
       type: Sequelize.STRING,
-      allowNull: true
+      allowNull: false
     },
     CODE: {
       type: Sequelize.STRING,
@@ -17,19 +17,19 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
     },
       BATCH: {
       type: Sequelize.STRING,
-      allowNull: true
+      allowNull: false
     },
       HSN: {
       type: Sequelize.STRING,
-      allowNull: true
+      allowNull: false
     },
       DATEOFPUR: {
       type: Sequelize.DATEONLY,
-      allowNull: true
+      allowNull: false
     },
       DATEOFEXP: {
       type: Sequelize.DATEONLY,
-      allowNull: true
+      allowNull: false
     },
     
    
