@@ -110,6 +110,19 @@ then(users => {
    
 // });
 
+
+publicRouter.get('/list_expired_products', (request: Request, response: Response) => {
+  Tas_product_det.findAll({
+  attributes: ['ID','PRODUCT_NAME','DATEOFEXP']
+}).
+then(users => {
+  response.send(users);
+ 
+});
+});
+
+
+
   publicRouter.get('/create_invoice_table', (request: Request, response: Response) => {
  Tas_invoice_history.sync({force: true}).then(() => {
   //Table created
