@@ -111,7 +111,7 @@ then(users => {
 // });
 
 
-publicRouter.get('/list_expired_products', (request: Request, response: Response) => {
+publicRouter.post('/list_expired_products', (request: Request, response: Response) => {
   Tas_product_det.findAll({
   attributes: ['ID','PRODUCT_NAME','DATEOFEXP'],
      where: {  DATEOFEXP: {  [Op.lt]: request.body.exp_date } , }
