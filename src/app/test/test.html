@@ -1,0 +1,141 @@
+<div class="container" width="800px" id="invoice">
+	<div class="row">
+		<div class="col-xs-12 heading">
+			INVOICE
+		</div>
+	</div>
+
+	<div class="row branding">
+		<div class="col-xs-6">
+			<div class="invoice-number-container">
+				<label for="invoice-number">Invoice No #</label><input type="text" id="invoice-number" [(ngModel)]="invoice_number_gets">
+			</div>
+		</div>
+
+		<p> {{today | date:'medium'}}</p>
+
+
+		<div class="col-xs-6 logo-container">
+			<input type="file" id="imgInp" />
+			<img id="company_logo" alt="your image" width="300" />
+			
+		</div>
+	</div>
+
+	<div class="row infos">
+
+		<div class="col-xs-6 ">
+			<div class="input-container"><input type="text" placeholder="Doctor Name" id="doctor-name" [(ngModel)]="doctor_name"></div>
+
+			<div class="input-container"><input type="text" placeholder="Doctor Contact No" id="doctor-name" [(ngModel)]="doctor_contact"></div>
+
+
+		</div>
+
+		<div class="col-xs-6 right">
+			<div class="input_container"><input type="text" placeholder="Customer Name" id="customer-name" [(ngModel)]="customer_name"> </div>
+			<div class="input_container"><input type="text" placeholder="Customer Address" id="customer-name" [(ngModel)]="customer_address"> </div>
+			<div class="input_container"><input type="tel" placeholder="Contactnumber" id="customer-name" [(ngModel)]="customer_contact_number"> </div>
+		</div>
+	</div>
+
+
+  <div class="items-table">
+    <div class="row header">
+      <div class="col-xs-1">&nbsp;</div>
+      <div class="col-xs-2">SI</div>
+      <div class="col-xs-3">Description</div>
+      <div class="col-xs-2">Quantity</div>
+      <div class="col-xs-2">Cost</div>
+      <div class="col-xs-2 text-right">Total</div>
+    </div>
+
+
+
+    <div class="row invoice-item" *ngFor="let item of subinvoice.items; let k=index " ng-animate="'slide-down'"
+     (click)="onSelect(item); get_index(k)"  [class.selected]="item === selecteditem">
+      <div  *ngIf="isPrint" class="col-xs-1 remove-item-container">
+        <button [disabled]="disabled_button" *ngIf="isPrint" class="btn btn-danger" (click)="removeItem()">[X]</button>
+      </div>
+
+      <div  *ngIf="!isPrint" class="col-xs-1 remove-item-container">
+        
+      </div>
+
+      <div class="col-xs-1 input-container">
+          {{k+1}}
+      </div>
+    
+       
+    
+
+      <div class="col-xs-4 input-container">
+        <input placeholder="Description" class="text_mat" [matAutocomplete]="auto" [formControl]="PdtCtrl"  >
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let state of filteredpdts | async" [value]="state.PRODUCT_NAME" (focus)="focusFunction()"
+           (blur)="readValue(state.PRICE,state.PRODUCT_NAME,state.GST_SLAB)">
+
+            <span>{{ state.CODE }}</span>
+
+          </mat-option>
+        </mat-autocomplete>
+      </div>
+
+
+      <div class="col-xs-2 input-container">
+        <input #box value="1" size="4" placeholder="Quantity" (focus)="focusFunction()" (keyup)="changeqty(box.value)" (blur)="changeqty(box.value)"
+         [(ngModel)]="qtylist[k]">
+      </div>
+
+      <!-- <div class="col-xs-2 input-container">
+        <input [(ngModel)]="item.PRICE" value="0.00" ng-required ng-validate="number" size="6" placeholder="Cost" />
+      </div> -->
+
+      <!--<div class="col-xs-2 text-right input-container">
+          <input [(ngModel)]="item.TOTAL_ITEM_COST" value="0.00" ng-required ng-validate="number" size="6" placeholder="Cost" />
+         </div>-->
+
+          <div class="col-xs-2 input-container">
+               {{item.PRICE}}
+        </div>
+    
+
+      <div class="col-xs-2 text-right input-container">
+        {{item_price[k]}}
+      </div>
+    </div>
+
+
+    <div class="row invoice-item">
+      <div class="col-xs-12 add-item-container">
+        <button class="btn btn-primary" (click)="addItem()">[+]</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-10 text-right">Sub Total</div>
+      <div class="col-xs-2 text-right">{{sub_total}}</div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-xs-10 text-right">Tax Accumilated: </div>
+      <div class="col-xs-2 text-right">{{total_tax}}</div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-10 text-right">Grand Total:</div>
+      <div class="col-xs-2 text-right">{{grand_total}}</div>
+    </div>
+  </div>
+
+    <div class="row noPrint actions">
+      <button class="btn btn-primary"  (click)="cal_tax()">Apply_Tax</button>
+       <button class="btn btn-primary"  (click)="viewarray()">VIEW_ARRRAY</button>
+      
+      <button class="btn btn-primary"  (click)="print_invoice()">Print</button>
+
+    </div>
+
+
+</div>
