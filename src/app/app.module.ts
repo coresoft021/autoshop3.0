@@ -11,7 +11,7 @@ import { LoginComponent } from './login/login';
 import {ReactiveFormsModule} from "@angular/forms";
 import {AuthenticationService} from'./services/login.service';
 import {DataService} from'./services/data.service'; 
-import {CdkTableModule} from '@angular/cdk/table'
+import {CdkTableModule} from '@angular/cdk/table';
 import {OverlayModule} from '@angular/cdk/overlay';
 import 'hammerjs';
 
