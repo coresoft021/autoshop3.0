@@ -7,13 +7,10 @@ import { CustomerCreateComponent } from './dash/adduser';
 import { AppRoutingModule } from './app.router';
 import { DashComponent } from './dash/dash';
 import { LoginComponent } from './login/login';
-import { Set1Component } from './test/set1';
-import { SubmitComponent } from './test/ae/sub_page';
-import { AeSet1Component } from './test/ae/test1';
+
 import {ReactiveFormsModule} from "@angular/forms";
 import {AuthenticationService} from'./services/login.service';
-import { SelectExam } from './test/sel_test';
-import { Set2Component } from './test/set2';
+import {DataService} from'./services/data.service'; 
 import {CdkTableModule} from '@angular/cdk/table'
 import {OverlayModule} from '@angular/cdk/overlay';
 import 'hammerjs';
@@ -31,9 +28,9 @@ import {
 
 @NgModule({
   declarations: [
-    AppComponent,LoginComponent,DashComponent,Set1Component,CustomerCreateComponent,AeSet1Component,SubmitComponent,SelectExam,Set2Component
+    AppComponent,LoginComponent,DashComponent
   ],
-       providers: [ AuthenticationService ],
+       providers: [ AuthenticationService,DataService],
   imports: [
     BrowserModule,BrowserAnimationsModule,
    ReactiveFormsModule,
