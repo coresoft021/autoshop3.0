@@ -12,7 +12,14 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+favoriteSeason: string;
 
+  seasons = [
+    'Winter',
+    'Spring',
+    'Summer',
+    'Autumn',
+  ];
  
   constructor(http: Http) { }
 }
