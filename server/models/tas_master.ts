@@ -44,6 +44,15 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       type: Sequelize.DECIMAL(10, 2),
       allowNull: false
     },
+    IS_RETURN: {
+      type: Sequelize.BOOLEAN,
+      allowNull: true
+    },
+       IS_CANCELED: {
+      type: Sequelize.BOOLEAN,
+      allowNull: true
+    },
+    
   
   }, {
     tableName: 'tas_master',
