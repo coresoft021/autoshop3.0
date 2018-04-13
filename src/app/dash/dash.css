@@ -92,7 +92,7 @@ input:focus {
 }
 
 .heading {
-  background-color:#357EBD;
+  background-color:#c7c5b7;
   color:#FFF;
   margin-bottom:1em;
   text-align:center;
@@ -159,7 +159,7 @@ body{
 }
 
 div.container{
-  width: 800px;
+  width: 85%;
 }
 
 #imgInp{
@@ -184,3 +184,39 @@ div.container{
   color: #ce0c15;
 }
   
+.text_mat
+{
+
+      width: 80%;
+}
+.mat-autocomplete-panel .mat-option.mat-selected:not(.mat-active):not(:hover) {
+    background: #5d5;
+    background-color: red;
+}
+.mat-option.mat-active {
+    background: #b5aea3;
+    color: rgba(53, 19, 19, 0.87);
+}
+
+
+.mat-autocomplete-panel {
+    background: #6517e7;
+    color: rgba(0,0,0,.87);
+    background-color: red;
+}
+
+.down_a
+{
+      max-height: 30px;
+    max-width: 30px;
+    padding-left: 0px;
+    margin-top: 2px;
+}
+
+.gst
+{
+      display: block;
+    padding-bottom: 0px;
+    margin-bottom: -10px;
+    margin-top: -10px;
+}
