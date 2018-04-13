@@ -4,7 +4,7 @@ import { Tas_products } from '../models/tas_product';
 import { Tas_receipts } from '../models/tas_receipt';
 import { Tas_invoice_history  } from '../models/invo_history';
 import { Tas_product_det } from '../models/tas_product_det';
-
+import { Tas_slave } from '../models/tas_slave';
 import { Sequelize, sequelize } from './dbcon';
 const publicRouter: Router = Router();
 const Op = Sequelize.Op;
@@ -14,6 +14,37 @@ publicRouter.get("/simple", (request: Request, response: Response) => {
     title: "Greetings.",
   });
 });
+
+ publicRouter.get('/create_tas_slave_table', (request: Request, response: Response) => {
+ Tas_slave.sync({force: true}).then(() => {
+  //Table created
+  return Tas_slave.create({
+    
+    PRODUCT_NAME : 'prem',
+    QUANTITY: 0,
+    TAS_MASTER_ID: 0,
+    PRICE: 0,
+    DISCOUNT: 0,
+   });
+ });
+   
+});
+publicRouter.post('/add_new_invo_product', (request: Request, response: Response) => {
+     console.log('inside');
+        Tas_slave.create({ 
+                             PRODUCT_NAME : 'go',
+                             QUANTITY: 0,
+                             TAS_MASTER_ID: 0,
+                             PRICE: 0,
+                            DISCOUNT: 0,
+
+                        })
+
+       
+    return response.json({success:true, msg:'Successfully saved'});
+    
+         
+ });
 
 publicRouter.get('/get_product_list', (request: Request, response: Response) => {
  
