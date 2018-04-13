@@ -1,13 +1,128 @@
+<div class="container" width="900px" id="invoice">
+	<div class="row">
+		<div class="col-xs-12 heading">
+			INVOICE
+		</div>
+	</div>
+
+	<div class="row branding">
+		<div class="col-xs-6">
+			<div class="invoice-number-container">
+				<label for="invoice-number">Invoice No #</label><input type="text" id="invoice-number"
+         [attr.disabled]="true" [(ngModel)]="invoice_number_gets">
+			</div>
+		</div>
+
+		<p> {{today | date:'medium'}}</p>
 
 
-<div class="topnav">
+
+
+  <div class="items-table">
+    <div class="row header">
+      <div class="col-xs-1">&nbsp;</div>
+      <div class="col-xs-1">SI</div>
+      <div class="col-xs-3">Description</div>
+      <div class="col-xs-1">Quantity</div>
+      <div class="col-xs-1">Discount</div>
+      <div class="col-xs-2">Cost</div>
+      <div class="col-xs-2 text-right">Total</div>                                
+    </div>
+
+
+    <div class="row invoice-item" *ngFor="let item of subinvoice.items; let k=index " ng-animate="'slide-down'" >
+       <test1> </test1>
+
+
+       <div  *ngIf="isPrint" class="col-xs-1 remove-item-container">
+        <button [disabled]="disabled_button" *ngIf="isPrint" class="btn btn-danger" (click)="removeItem()">[X]</button>
+      </div> 
+
+      
+     
+    
+      <div class="col-xs-1 input-container" >
+          {{k+1}}
+      </div>
+    
+    
+       
+    
+
+      <div class="col-xs-3 input-container">
+         
+   <input ngui-auto-complete #autos [(ngModel)]="pdt_list[k]"  autofocus [source]="arrayOfKeyValues"  placeholder="Description" (focus)="onSelect(item,k)" 
+    (blur)="onTabKey(autos.value)"
+ list-formatter="(CODE) PRODUCT_NAME"
+    display-property-name="PRODUCT_NAME">
   
-   <a routerLink="/reciept" routerLinkActive="active" class="active">Receipt </a>
-   <a routerLink="/add_new_product" routerLinkActive="active">Add Stock item </a>
-   <a routerLink="/stock_view" routerLinkActive="active">View Stock </a>
-   <a routerLink="/stock_entry" routerLinkActive="active">Stock Entry </a>
-   <a routerLink="/test" routerLinkActive="active">Stock Adjust </a>
-   <a routerLink="/aetest1" routerLinkActive="active">Reports</a>
-   <a routerLink="/admin-panel" routerLinkActive="active">Admin panel</a>
-  
+      </div>
+
+
+      <div class="col-xs-1 input-container">
+        <input #box value="1" size="4" placeholder="Quantity" (focus)="focusFunction()" (focus)="onSelect(item,k)"
+         (blur)="change_qty(box.value)"
+         [(ngModel)]="qtylist[k]">
+      </div>
+
+       <div class="col-xs-1 input-container">
+        <input #box value="1" size="4" placeholder="discount" (keydown.f4)="addItem()" >     
+         
+      </div>
+
+     
+
+          <div class="col-xs-1 input-container">
+               {{item.PRICE}}
+        </div>
+    
+
+       <div class="col-xs-1 input-container" >
+         <button class="down_a" (keydown.f4)="addItem()">   <mat-icon> expand_more </mat-icon> </button>
+      </div>
+
+      <div class="col-xs-2 text-right input-container">
+        {{item_price[k]}}
+      </div>
+    
+
+    
+   
+    </div>
+
+     <div class="row invoice-item">
+      <div class="col-xs-12 add-item-container">
+        <button  *ngIf="z<1" class="btn btn-primary" (keydown.f4)="addItem()" (click)="addItem()">[+]</button>
+      </div>
+    </div>  
+   
+    <div class="row">
+      <div class="col-xs-10 text-right">Sub Total</div>
+      <div class="col-xs-2 text-right">{{sub_total}}</div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-xs-10 text-right">Tax Accumilated: <span> CGST : {{total_tax/2}} </span> <span class="gst"> SGST : {{total_tax/2}}  </span>   </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-10 text-right">Grand Total:</div>
+      <div class="col-xs-2 text-right">{{grand_total}}</div>
+    </div>
   </div>
+
+    <div class="row noPrint actions">
+      <button class="btn btn-primary" (keydown.f4)="addItem()"  (click)="cal_tax()">Apply_Tax</button>
+       <button class="btn btn-primary"  (click)="viewarray()">VIEW_ARRRAY</button>
+      
+      <button class="btn btn-primary"  (click)="print_invoice()">Print</button>
+
+    </div>
+
+
+</div>
+
+
+
+
