@@ -1,34 +1,78 @@
 import { Request, Response, Router } from "express";
 
-const userRouter: Router = Router();
-
-const user = {
-  address: {
-    city: "Gwenborough",
-    geo: {
-      lat: "-37.3159",
-      lng: "81.1496",
-    },
-    street: "Kulas Light",
-    suite: "Apt. 556",
-    zipcode: "92998-3874",
-  },
-  company: {
-    bs: "harness real-time e-markets",
-    catchPhrase: "Multi-layered client-server neural-net",
-    name: "Romaguera-Crona",
-  },
-  email: "Sincere@april.biz",
-  id: 1,
-  name: "Leanne Graham",
-  phone: "1-770-736-8031 x56442",
-  username: "Bret",
-  website: "hildegard.org",
-};
 
 userRouter.get("/", (request: Request, response: Response) => {
 
   response.json(user);
 });
+ userRouter.post('/login_check', (request: Request, response: Response) => {
+   var username = request.body.username;
+   var password = request.body.password;
+    
+    Tas_users.findOne({
+  where: {
+    USER_NAME: request.body.username,
+    PASSWORD: request.body.password
+    }
+}).then(function(result){
+  
+                                                if(result)
+                                                { 
+                                                    if(result.IS_ADMIN === true)
+                                                    {
+                                                        return response.json({success:true, msg:'Admin logged'});
+                                                       }
+                                                          else
+                                                {
+                                                     return response.json({success:true, msg:'user logged'});   }
 
+                                                }   
+                                                else
+                                                {
+
+                                                return response.json({success: false, msg: 'Authentication failed'});
+                                                }    
+                         });
+      
+   
+ 
+
+   
+ });
+
+
+  userRouter.post('/server_check', (request: Request, response: Response) => {
+   var username = 'a'
+   var password = 's'
+    
+    Tas_users.findOne({
+  where: {
+    USER_NAME: username,
+    PASSWORD: password
+    }
+}).then(function(result){
+  
+                                                if(result)
+                                                { 
+                                                    if(result.IS_ADMIN === true)
+                                                    {
+                                                        return response.json({ msg:'server running'});
+                                                       }
+                                                          else
+                                                {
+                                                     return response.json({ msg:'waiting'});   }
+
+                                                }   
+                                                else
+                                                {
+
+                                                response.status(403).send({msg: 'failed'});
+                                                }    
+                         });
+      
+   
+ 
+
+   
+ });
 export { userRouter };
