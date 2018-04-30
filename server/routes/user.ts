@@ -1,5 +1,7 @@
 import { Request, Response, Router } from "express";
-
+import { Sequelize, sequelize } from './dbcon';
+import { Tas_users } from '../models/aut-users';
+const userRouter: Router = Router();
 
 userRouter.get("/", (request: Request, response: Response) => {
 
