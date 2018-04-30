@@ -5,7 +5,7 @@ const userRouter: Router = Router();
 
 userRouter.get("/", (request: Request, response: Response) => {
 
-  response.json(user);
+  response.json('ji');
 });
  userRouter.post('/login_check', (request: Request, response: Response) => {
    var username = request.body.username;
