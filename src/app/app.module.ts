@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.router';
-import { DashComponent } from './dash/dash';
+
 import { LoginComponent } from './login/login';
 import {ReactiveFormsModule} from "@angular/forms";
 import {AuthenticationService} from'./services/login.service';
@@ -54,7 +54,7 @@ import {
 
 @NgModule({
   declarations: [
-    AppComponent,LoginComponent,DashComponent
+    AppComponent,LoginComponent
   ],
        providers: [ AuthenticationService,DataService],
   imports: [
