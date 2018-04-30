@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, Response,RequestOptionsArgs } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { contentHeaders } from './headers' ;
-import { Products } from '../dash/usermodel';
-import { Pdt } from '../dash/usermodel';
-import { pro_exp } from '../dash/usermodel';
+
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/toPromise';
@@ -46,32 +44,8 @@ return 10;
 }
 
 
-  getproduct_list() : Promise<Products[]> {
-    
-
-
-               return this.http.get('https://papercups.herokuapp.com/api/public/get_product_list')
-                  .toPromise()
-                  .then(res => <Products[]> res.json())
-                  .then(data => { console.log(data); return data; }); 
-                  
-
-                                 
-   }
-
-     getpdt_list() : Promise <Pdt[]> {
-    
-
-
-               return this.http.get('https://papercups.herokuapp.com/api/public/get_pdt_list')
-                  .toPromise()
-                  .then(res => <Pdt[]> res.json())
-                  .then(data => { console.log(data); return data; }); 
-                  
-
-                                 
-   }
-
+  
+     
 
 
      addproduct(model:any) {
