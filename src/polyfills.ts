@@ -13,7 +13,7 @@ import 'core-js/es6/regexp';
 import 'core-js/es6/map';
 import 'core-js/es6/set';
 import 'hammerjs';
-import 'web-animations-js';
+
 
 
 
