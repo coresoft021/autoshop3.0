@@ -16,8 +16,8 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       allowNull: false
     },
     
-    CODE: {
-      type: Sequelize.INTEGER(11),
+    IS_ADMIN: {
+      type: Sequelize.BOOLEAN,
       allowNull: true
     },
   
