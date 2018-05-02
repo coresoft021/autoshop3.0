@@ -24,7 +24,7 @@ publicRouter.get('/get_pdt_list', (request: Request, response: Response) => {
  
 
   
-  Tas_products.findAll({
+  Tas_products.findAll({  attributes: ['PRODUCT_NAME', 'PRODUCT_CODE','TAX', 'AVAIL_QTY','NET_PURCHASE_PRICE', 'UNIT']
   
 }).
 then(users => {
