@@ -16,7 +16,17 @@ publicRouter.get("/simple", (request: Request, response: Response) => {
   });
 });
 
+ publicRouter.get('/list_pdts', (request: Request, response: Response) => {
+ 
+   
+  Tas_products.findAll({
+  
+ }).
+then(users => {
+  response.send(users);
+  });
 
+});
 
 
 
