@@ -20,19 +20,6 @@ publicRouter.get("/simple", (request: Request, response: Response) => {
 
 
 
-publicRouter.get('/get_pdt_list', (request: Request, response: Response) => {
- 
-
-  
-  Tas_products.findAll({  attributes: ['PRODUCT_NAME', 'PRODUCT_CODE','TAX', 'AVAIL_QTY','NET_PURCHASE_PRICE', 'UNIT']
-  
-}).
-then(users => {
-  response.send(users);
- 
-});
-  
-});
 
 
 publicRouter.post('/add_new_product', (request: Request, response: Response) => {
