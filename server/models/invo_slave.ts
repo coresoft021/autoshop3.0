@@ -6,7 +6,11 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
-    },    
+    },   
+    TAS_MASTER_ID: {
+    type: Sequelize.INTEGER,
+    allowNull: false
+    },
       PRODUCT_NAME: {
       type: Sequelize.STRING,
       allowNull: false
@@ -15,12 +19,8 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
        type: Sequelize.INTEGER,
     allowNull: false
     },
-      
-    TAS_MASTER_ID: {
-    type: Sequelize.INTEGER,
-    allowNull: false
-    },
-      PRICE: {
+       
+      NET_PRICE: {
       type: Sequelize.INTEGER,
       allowNull: false
     },
