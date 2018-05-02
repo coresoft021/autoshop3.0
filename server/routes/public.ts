@@ -2,7 +2,7 @@ import { Request, Response, Router } from "express";
 import { Tas_users } from '../models/tas_users';
 import { Tas_products } from '../models/tas_product';
 
-import { Tas_invoice_master  } from '../models/invo_history';
+import { Tas_invoice_master  } from '../models/invo_master';
 
 
 import { Sequelize, sequelize } from './dbcon';
@@ -15,36 +15,8 @@ publicRouter.get("/simple", (request: Request, response: Response) => {
   });
 });
 
- publicRouter.get('/create_tas_slave_table', (request: Request, response: Response) => {
- Tas_slave.sync({force: true}).then(() => {
-  //Table created
-  return Tas_slave.create({
-    
-    PRODUCT_NAME : 'prem',
-    QUANTITY: 0,
-    TAS_MASTER_ID: 0,
-    PRICE: 0,
-    DISCOUNT: 0,
-   });
- });
-   
-});
-publicRouter.post('/add_new_invo_product', (request: Request, response: Response) => {
-     console.log('inside');
-        Tas_slave.create({ 
-                             PRODUCT_NAME : 'go',
-                             QUANTITY: 0,
-                             TAS_MASTER_ID: 0,
-                             PRICE: 0,
-                            DISCOUNT: 0,
 
-                        })
 
-       
-    return response.json({success:true, msg:'Successfully saved'});
-    
-         
- });
 
 
 
