@@ -8,11 +8,11 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       autoIncrement: true
     },
     NAME: {
-      type: Sequelize.STRING,
+      type: Sequelize.STRING(15),
       allowNull: false
     },
     PASSWORD: {
-      type: Sequelize.STRING,
+      type: Sequelize.STRING(15),
       allowNull: false
     },
     
