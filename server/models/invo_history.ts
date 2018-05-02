@@ -1,6 +1,6 @@
 import {  sequelize , Sequelize } from '../routes/dbcon';
 
-  const Tas_invoice_history = sequelize.define('tas_invoice_history', {
+  const Tas_invoice_master = sequelize.define('tas_invoice_master', {
     ID: {
       type: Sequelize.INTEGER,
       allowNull: false,
