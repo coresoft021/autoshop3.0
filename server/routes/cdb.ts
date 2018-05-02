@@ -2,7 +2,7 @@ import { Request, Response, Router } from "express";
 import { Tas_users } from '../models/tas_users';
 import { Tas_invoice_master } from '../models/invo_master';
 import { Tas_invo_slave } from '../models/invo_slave';
-
+import { Tas_products } from '../models/tas_product';
 import { Sequelize, sequelize } from './dbcon';
 
 const dbRouter: Router = Router();
@@ -48,6 +48,24 @@ dbRouter.get("/all", (request: Request, response: Response) => {
      
   })
 
+     Tas_products.sync({force: true}).then(() => {
+   //Table created
+          return Tas_products.create({
+    
+            PRODUCT_NAME: '',
+            PRODUCT_CODE : 'P',
+            NET_PRICE : 0,
+            TAX : 4,
+            AVAIL_QTY : 0,
+            NET_PURCHASE_PRICE: 0,
+            UNIT: 'pc'
+            
+            
+    
+    
+     })
+     
+  })
 
        Tas_users.sync({force: true}).then(() => {
    //Table created
