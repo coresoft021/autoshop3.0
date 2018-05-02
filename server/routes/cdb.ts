@@ -90,14 +90,15 @@ dbRouter.get("/all", (request: Request, response: Response) => {
   
    Tas_invo_master.sync({force: true}).then(() => {
    //Table created
-  return Tas_members.create({
+  return Tas_invo_master.create({
     
-     MEMBER_NAME : 'prem',
-     ADDRESS: '',
-     MEMBERSHIP_NO: 1,
-     PHONE: 0,
-    CREDIT_BAL: 0,
-     REMARKS: '',
+     INVOICE_NUMBER : 1,
+     CUSTOMER_NAME: '',
+     CUSTOMER_ADDRESS: '',
+     CUSTOMER_PHONE: 0,
+    SUB_TOTAL: 0,
+     TAX_COLLECTED: 0,
+    GROSS_TOTAL: 0,
     
     
     })
@@ -106,11 +107,14 @@ dbRouter.get("/all", (request: Request, response: Response) => {
    //Table created
           return Tas_tran_masavari.create({
     
-     MEMBERSHIP_NO: 1,
-     AMOUNT: 0,
-     DATE_FROM: new Date(1980, 6, 20),
-     DATE_UPTO: new Date(1980, 6, 20),
-     DATE_OF_PAYMENT: new Date(1980, 6, 20),
+            TAS_MASTER_ID: 1,
+            PRODUCT_NAME : 'P',
+            QUANTITY : 0,
+            NET_PRICE : 4,
+            DISCOUNT : 0,
+            
+            
+    
     
      })
      
@@ -123,7 +127,6 @@ dbRouter.get("/all", (request: Request, response: Response) => {
     
      USER_NAME : 'prem',
      PASSWORD: 'arshavin021',
-     TAS_MASTER_ID: 0,
      IS_ADMIN: 0,
     
       
