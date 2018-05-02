@@ -83,20 +83,6 @@ Tas_products.findOne({ where: { PRODUCT_NAME:  request.body.product_name } }).th
  
 
 
-publicRouter.post('/add_user', (request: Request, response: Response) => {
- Tas_users.create({
-    NAME: request.body.username,
-    CODE: 12,
-    MARK: 10,
-    PASSWORD: request.body.password
-     })
-     
-  return response.json({success:true, msg:'Successfully saved'});
-     
- });
-
-
-
 
 
 
