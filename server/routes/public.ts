@@ -8,9 +8,10 @@ import { Tas_invoice_master  } from '../models/invo_master';
 import { Sequelize, sequelize } from './dbcon';
 const publicRouter: Router = Router();
 const Op = Sequelize.Op;
+
 publicRouter.get("/simple", (request: Request, response: Response) => {
   response.json({
-    text: "Hello Angular 2",
+    text: "fucked",
     title: "Greetings.",
   });
 });
