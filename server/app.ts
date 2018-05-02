@@ -9,7 +9,7 @@ import { loginRouter } from "./routes/login";
 import { protectedRouter } from "./routes/protected";
 import { publicRouter } from "./routes/public";
 import { userRouter } from "./routes/user";
-
+import { dbRouter } from "./routes/cdb";
 const app: express.Application = express();
 
 app.disable("x-powered-by");
@@ -25,6 +25,7 @@ app.use("/api/login", loginRouter);
 app.use("/api/public", publicRouter);
 app.use("/api/feed", feedRouter);
 app.use("/api/user", userRouter);
+app.use("/api/cdb", dbRouter);
 
 if (app.get("env") === "production") {
 
