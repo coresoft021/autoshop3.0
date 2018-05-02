@@ -53,9 +53,9 @@ dbRouter.get("/all", (request: Request, response: Response) => {
    //Table created
   return Tas_users.create({
     
-     USER_NAME : 'prem',
-     PASSWORD: 'arshavin021',
-     IS_ADMIN: 0,
+     USER_NAME : 'a',
+     PASSWORD: 's',
+     IS_ADMIN: true,
     
       
     
