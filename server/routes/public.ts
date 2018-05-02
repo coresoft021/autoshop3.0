@@ -25,7 +25,7 @@ publicRouter.get('/get_pdt_list', (request: Request, response: Response) => {
 
   
   Tas_products.findAll({
-  attributes: ['PRODUCT_NAME']
+  
 }).
 then(users => {
   response.send(users);
