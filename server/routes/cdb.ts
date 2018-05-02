@@ -1,6 +1,6 @@
 import { Request, Response, Router } from "express";
 import { Tas_users } from '../models/tas_users';
-import { Tas_invo_master } from '../models/invo_master';
+import { Tas_invoice_master } from '../models/invo_master';
 import { Tas_invo_slave } from '../models/invo_slave';
 
 import { Sequelize, sequelize } from './dbcon';
@@ -33,7 +33,7 @@ dbRouter.get("/all", (request: Request, response: Response) => {
    })
              Tas_invo_slave.sync({force: true}).then(() => {
    //Table created
-          return Tas_tran_masavari.create({
+          return Tas_invo_slave.create({
     
             TAS_MASTER_ID: 1,
             PRODUCT_NAME : 'P',
