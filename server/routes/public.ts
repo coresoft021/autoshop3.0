@@ -59,6 +59,23 @@ publicRouter.post('/add_user', (request: Request, response: Response) => {
  });
 
 publicRouter.post('/add_new_product', (request: Request, response: Response) => {
+  
+  
+Tas_products.findOne({ where: { PRODUCT_NAME:  request.body.product_name } }).then(person => {
+
+  if(person){
+  
+   return response.json({success:true, msg:'product already existed'});
+  }
+  
+  else 
+  {
+    Tas_products.findOne({ where: { PRODUCT_CODE:  request.body.product_code } }).then(pers => {
+
+  if(pers){
+     return response.json({success:true, msg:'Code already existed'});
+         }
+      else{
  Tas_products.create({
     PRODUCT_NAME: request.body.product_name,
     PRODUCT_CODE: request.body.product_code,
@@ -70,6 +87,9 @@ publicRouter.post('/add_new_product', (request: Request, response: Response) => 
      })
      
   return response.json({success:true, msg:'Successfully saved'});
+    
+  }
+  
      
  });
 
