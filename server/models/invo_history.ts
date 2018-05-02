@@ -46,9 +46,9 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
     },
   
   }, {
-    tableName: 'tas_invoice_history',
+    tableName: 'tas_invoice_master',
      timestamps: false
   });
 
 
-export {Tas_invoice_history};
+export {Tas_invoice_master};
