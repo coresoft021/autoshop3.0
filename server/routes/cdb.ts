@@ -8,7 +8,7 @@ import { Sequelize, sequelize } from './dbcon';
 const dbRouter: Router = Router();
 
 
-dbRouter.get("/master", (request: Request, response: Response) => {
+dbRouter.get("/invo_master", (request: Request, response: Response) => {
   
   Tas_master.sync({force: true}).then(() => {
    //Table created
@@ -36,7 +36,7 @@ dbRouter.get("/master", (request: Request, response: Response) => {
 
 
   
- dbRouter.get('/slave', (request: Request, response: Response) => {
+ dbRouter.get('/invo_slave', (request: Request, response: Response) => {
   Tas_slave.sync({force: true}).then(() => {
    //Table created
   return Tas_slave.create({
@@ -88,7 +88,7 @@ dbRouter.get("/users", (request: Request, response: Response) => {
 
 dbRouter.get("/all", (request: Request, response: Response) => {
   
-   Tas_members.sync({force: true}).then(() => {
+   Tas_invo_master.sync({force: true}).then(() => {
    //Table created
   return Tas_members.create({
     
@@ -102,7 +102,7 @@ dbRouter.get("/all", (request: Request, response: Response) => {
     
     })
    })
-             Tas_tran_masavari.sync({force: true}).then(() => {
+             Tas_invo_slave.sync({force: true}).then(() => {
    //Table created
           return Tas_tran_masavari.create({
     
