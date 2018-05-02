@@ -16,9 +16,9 @@ const dbRouter: Router = Router();
 
 dbRouter.get("/all", (request: Request, response: Response) => {
   
-   Tas_invo_master.sync({force: true}).then(() => {
+   Tas_invoice_master.sync({force: true}).then(() => {
    //Table created
-  return Tas_invo_master.create({
+  return Tas_invoice_master.create({
     
      INVOICE_NUMBER : 1,
      CUSTOMER_NAME: '',
