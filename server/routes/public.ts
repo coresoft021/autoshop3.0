@@ -102,36 +102,7 @@ publicRouter.post('/add_new_product', (request: Request, response: Response) => 
 
 
 
-  publicRouter.post('/login_check', (request: Request, response: Response) => {
-   var username = request.body.username;
-   var password = request.body.password;
-    
-    Tas_users.findOne({
-  where: {
-    NAME: request.body.username,
-    PASSWORD: request.body.password
-    }
-}).then(function(result){
-  
-                                                if(result)
-                                                {
-                                                return response.json({success:true, msg:'Successfully logged'});
-
-                                                }   
-                                                else
-                                                {
-
-                                                response.status(403).send({success: false, msg: 'Authentication failed, User not found'});
-                                                }    
-                         });
-      
-   
- 
-
-   
- });
-
- 
+                                
  
 
 
