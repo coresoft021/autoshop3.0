@@ -7,7 +7,7 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       primaryKey: true,
       autoIncrement: true
     },
-    NAME: {
+    USER_NAME: {
       type: Sequelize.STRING(15),
       allowNull: false
     },
