@@ -8,21 +8,33 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       autoIncrement: true
     },
     PRODUCT_NAME: {
-      type: Sequelize.STRING,
+      type: Sequelize.STRING(25),
       allowNull: false
     },
-    CODE: {
-      type: Sequelize.STRING,
+    PRODUCT_CODE: {
+      type: Sequelize.STRING(8),
       allowNull: false
     },
-      PRICE: {
-      type: Sequelize.INTEGER,
+      NET_PRICE: {
+      type: Sequelize.INTEGER(5),
       allowNull: false
     },
     
-    GST_SLAB: {
-      type: Sequelize.STRING,
-      allowNull: true
+    TAX: {
+      type: Sequelize.INTEGER(2),
+      allowNull: false
+    },
+    AVAIL_QTY: {
+      type: Sequelize.INTEGER(5),
+      allowNull: false
+    },
+      NET_PURCHASE_PRICE: {
+      type: Sequelize.INTEGER(5),
+      allowNull: false
+    },
+       UNIT: {
+      type: Sequelize.STRING(5),
+      allowNull: false
     },
   
   }, {
