@@ -23,14 +23,7 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       type: Sequelize.INTEGER,
       allowNull: true
     },
-      DOCTOR_NAME: {
-      type: Sequelize.STRING,
-      allowNull: true
-    },
-       DOCTOR_PHONE: {
-      type: Sequelize.INTEGER,
-      allowNull: true
-    },
+     
       SUB_TOTAL: {
       type: Sequelize.DECIMAL(10, 2),
       allowNull: false
