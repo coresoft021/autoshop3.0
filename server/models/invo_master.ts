@@ -40,7 +40,7 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
   
   }, {
     tableName: 'tas_invoice_master',
-     timestamps: false
+     timestamps: true
   });
 
 
