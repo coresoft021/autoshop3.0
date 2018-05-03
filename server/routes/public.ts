@@ -28,7 +28,16 @@ then(users => {
 
 });
 
-
+   publicRouter.post('/get_invoice_number', (request: Request, response: Response) => {
+    Tas_master.count().then(c => {
+           response.json({
+    text: "counted",
+    count: c,
+  });
+              
+            })
+   
+   })
 
 
 
