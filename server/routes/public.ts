@@ -16,6 +16,45 @@ publicRouter.get("/simple", (request: Request, response: Response) => {
   });
 });
 
+
+publicRouter.post('/post_invoice', (request: Request, response: Response) => {
+
+    Tas_master.create({
+         INVOICE_NUMBER : request.body.invo.SI_NO,
+         CUSTOMER_NAME  : request.body.invo.CUS_NAME,
+         DOCTOR_NAME    : request.body.invo.DOC_NAME,
+         TAX_COLLECTED  : request.body.invo.TOTAL_INC_TAX,
+         GROSS_TOTAL    : request.body.invo.GROSS_TOTAL,
+         SUB_TOTAL      : 0,
+         IS_RETURN      : 0,
+         IS_CANCELED    : 0,
+
+         
+
+    })
+
+
+  
+   for (var index = 0; index <= request.body.length; index++) {
+    
+   
+        Tas_slave.create({ 
+                             PRODUCT_NAME : request.body.invo_det[index].PRODUCT_NAME,
+                             QUANTITY: request.body.invo_det[index].QUANTITY,
+                             TAS_MASTER_ID: request.body.invo.SI_NO,
+                             PRICE: request.body.invo_det[index].PRICE,
+                             DISCOUNT: 0,
+                             TOTAL_ITEM_COST : request.body.invo_det[index].TOTAL_ITEM_COST,
+                             TAX_PER_ENTRY : request.body.invo_det[index].TOTAL_INC_TAX,
+                             IS_RETURN      : 0
+
+                        })
+   }
+       
+    return response.json({success:true, msg:'Successfully saved'});
+    
+         
+ });
  publicRouter.get('/list_pdts', (request: Request, response: Response) => {
  
    
