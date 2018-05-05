@@ -37,6 +37,26 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       type: Sequelize.DECIMAL(10, 2),
       allowNull: false
     },
+      ITEM_LENGTH: {
+      type: Sequelize.INTEGER,
+      allowNull: true
+    },
+      DISCOUNT_TOTAL: {
+      type: Sequelize.DECIMAL(10, 2),
+      allowNull: true
+    },
+    TOTAL_PAYED: {
+      type: Sequelize.DECIMAL(10, 2),
+      allowNull: true
+    },
+    TOTAL_DUE: {
+      type: Sequelize.DECIMAL(10, 2),
+      allowNull: true
+    },
+     IS_PARTIAL_PAY: {
+      type: Sequelize.BOOLEAN),
+      allowNull: true
+    },
   
   }, {
     tableName: 'tas_invoice_master',
