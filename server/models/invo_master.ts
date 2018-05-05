@@ -23,6 +23,10 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       type: Sequelize.INTEGER,
       allowNull: true
     },
+     CUSTOMER_VAT_ID: {
+      type: Sequelize.STRING,
+      allowNull: true
+    },
      
       SUB_TOTAL: {
       type: Sequelize.DECIMAL(10, 2),
