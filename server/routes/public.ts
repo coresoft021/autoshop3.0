@@ -20,21 +20,21 @@ publicRouter.get("/simple", (request: Request, response: Response) => {
 publicRouter.post('/post_invoice', (request: Request, response: Response) => {
 
     Tas_master.create({
-         INVOICE_NUMBER : request.body.invo.SI_NO,
-         CUSTOMER_NAME  : request.body.invo.CUS_NAME,
-         DOCTOR_NAME    : request.body.invo.DOC_NAME,
-         TAX_COLLECTED  : request.body.invo.TOTAL_INC_TAX,
-         GROSS_TOTAL    : request.body.invo.GROSS_TOTAL,
-         SUB_TOTAL      : 0,
-         IS_RETURN      : 0,
-         IS_CANCELED    : 0,
-
-         
-
-    })
-
-
-  
+         INVOICE_NUMBER : request.body.invoice_number,
+         CUSTOMER_NAME  : request.body.cus_name,
+         CUSTOMER_ADDRESS    : request.body.cus_address,
+         CUSTOMER_PHONE  : request.body.cus_phone,
+         CUSTOMER_VAT_ID    : request.body.cus_phone,
+         SUB_TOTAL      : request.body.sub_total,
+         TAX_COLLECTED      : request.body.total_tax,
+         GROSS_TOTAL    : request.body.gross_total,
+         ITEM_LENGTH    :request.body.invo.length,
+         DISCOUNT_TOTAL  :request.body.discount_total,
+         TOTAL_PAYED   : request.body.total_payed,
+         TOTAL_DUE    :request.body.total_due,
+         IS_PARTIAL_PAY : false,
+ 
+    
    for (var index = 0; index <= request.body.length; index++) {
     
    
