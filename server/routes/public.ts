@@ -1,7 +1,7 @@
 import { Request, Response, Router } from "express";
 import { Tas_users } from '../models/tas_users';
 import { Tas_products } from '../models/tas_product';
-
+import { Tas_invo_slave } from '../models/invo_slave';
 import { Tas_invoice_master  } from '../models/invo_master';
 
 
@@ -19,7 +19,7 @@ publicRouter.get("/simple", (request: Request, response: Response) => {
 
 publicRouter.post('/post_invoice', (request: Request, response: Response) => {
 
-    Tas_master.create({
+    Tas_invoice_master.create({
          INVOICE_NUMBER : request.body.invoice_number,
          CUSTOMER_NAME  : request.body.cus_name,
          CUSTOMER_ADDRESS    : request.body.cus_address,
@@ -38,14 +38,14 @@ publicRouter.post('/post_invoice', (request: Request, response: Response) => {
    for (var index = 0; index <= request.body.length; index++) {
     
    
-        Tas_slave.create({ 
-                             PRODUCT_NAME : request.body.invo_det[index].PRODUCT_NAME,
-                             QUANTITY: request.body.invo_det[index].QUANTITY,
-                             TAS_MASTER_ID: request.body.invo.SI_NO,
-                             PRICE: request.body.invo_det[index].PRICE,
+        Tas_invo_slave.create({ 
+                             PRODUCT_NAME : request.body.items[index].PRODUCT_NAME,
+                             QUANTITY: request.body.items[index].QUANTITY,
+                             TAS_MASTER_ID: request.body.invoice_number,
+                             NET_PRICE: request.body.items[index].PRICE,
                              DISCOUNT: 0,
-                             TOTAL_ITEM_COST : request.body.invo_det[index].TOTAL_ITEM_COST,
-                             TAX_PER_ENTRY : request.body.invo_det[index].TOTAL_INC_TAX,
+                             TOTAL_ITEM_COST : request.body.items[index].TOTAL_ITEM_COST,
+                             TAX_PER_ENTRY : request.body.items[index].TOTAL_INC_TAX,
                              IS_RETURN      : 0
 
                         })
