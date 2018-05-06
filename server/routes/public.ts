@@ -42,11 +42,9 @@ publicRouter.post('/post_invoice', (request: Request, response: Response) => {
                              PRODUCT_NAME : request.body.items[index].PRODUCT_NAME,
                              QUANTITY: request.body.items[index].QUANTITY,
                              TAS_MASTER_ID: request.body.invoice_number,
-                             NET_PRICE: request.body.items[index].PRICE,
-                             DISCOUNT: 0,
-                             TOTAL_ITEM_COST : request.body.items[index].TOTAL_ITEM_COST,
-                             TAX_PER_ENTRY : request.body.items[index].TOTAL_INC_TAX,
-                             IS_RETURN      : 0
+                             NET_PRICE: request.body.items[index].NET_PRICE,
+                             DISCOUNT: 0
+                            
 
                         })
    }
