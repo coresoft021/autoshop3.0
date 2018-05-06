@@ -33,7 +33,7 @@ publicRouter.post('/post_invoice', (request: Request, response: Response) => {
          TOTAL_PAYED   : request.body.total_payed,
          TOTAL_DUE    :request.body.total_due,
          IS_PARTIAL_PAY : false,
- 
+ })
     
    for (var index = 0; index <= request.body.length; index++) {
     
