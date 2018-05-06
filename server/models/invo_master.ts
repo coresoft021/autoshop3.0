@@ -58,7 +58,7 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       allowNull: true
     },
      IS_PARTIAL_PAY: {
-      type: Sequelize.BOOLEAN),
+      type: Sequelize.BOOLEAN,
       allowNull: true
     },
   
