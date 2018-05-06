@@ -35,7 +35,7 @@ publicRouter.post('/post_invoice', (request: Request, response: Response) => {
          IS_PARTIAL_PAY : false,
  })
     
-   for (var index = 0; index <= request.body.length; index++) {
+   for (var index = 0; index < request.body.length; index++) {
     
    
         Tas_invo_slave.create({ 
