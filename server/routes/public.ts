@@ -17,6 +17,18 @@ publicRouter.get("/simple", (request: Request, response: Response) => {
 });
 
 
+ publicRouter.get('/list_invoices', (request: Request, response: Response) => {
+ 
+   
+  Tas_invoice_master.findAll({
+  
+ }).
+then(users => {
+  response.send(users);
+  });
+
+});
+
 publicRouter.post('/post_invoice', (request: Request, response: Response) => {
 
     Tas_invoice_master.create({
