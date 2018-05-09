@@ -44,7 +44,7 @@ publicRouter.post('/post_invoice', (request: Request, response: Response) => {
          DISCOUNT_TOTAL  :request.body.discount_total,
          TOTAL_PAYED   : request.body.total_payed,
          TOTAL_DUE    :request.body.total_due,
-         IS_PARTIAL_PAY : false,
+         IS_PARTIAL_PAY : request.body.is_partial_pay
  })
     
    for (var index = 0; index < request.body.length; index++) {
