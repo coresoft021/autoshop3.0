@@ -16,6 +16,42 @@ publicRouter.get("/simple", (request: Request, response: Response) => {
   });
 });
 
+ publicRouter.post('/get_a_invoice', (request: Request, response: Response) => {
+ 
+   
+   Tas_invoice_master.findOne({
+                            where: {
+                                      INVOICE_NUMBER: request.body.Invo_number
+                                  }
+                       }).then(function(master){
+  
+                                                if(master)
+                                                  
+                                                  {
+
+                                                      Tas_invo_slave.findAll({
+                                                      
+                                                      where: {
+                                                           TAS_MASTER_ID: request.body.Invo_number
+                                                             }  }).then(function(slave)  {                    
+                                                                                            response.json({
+                                                                                            master: master, slave: slave
+                                                                                            });
+
+                                                                                           });  }
+                                                                                           
+                                                   else
+                                                   {
+
+                                                      response.status(403).send({success: false, msg: 'Bill not found'});
+                                                   }                                        
+                                                                                           
+                                                                                           
+                                                  }); 
+
+});
+
+
 
  publicRouter.get('/list_invoices', (request: Request, response: Response) => {
  
