@@ -10,11 +10,20 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
     TAS_MASTER_ID: {
     type: Sequelize.INTEGER,
     allowNull: false
+    }, 
+       SI_NO: {
+      type: Sequelize.INTEGER,
+      allowNull: true
     },
       PRODUCT_NAME: {
       type: Sequelize.STRING,
       allowNull: false
     },
+      PRODUCT_CODE: {
+      type: Sequelize.STRING,
+      allowNull: true
+    },
+    
     QUANTITY: {
        type: Sequelize.INTEGER,
     allowNull: false
@@ -24,8 +33,23 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       type: Sequelize.INTEGER,
       allowNull: false
     },
-    
-      DISCOUNT: {
+      TAX: {
+      type: Sequelize.INTEGER,
+      allowNull: true
+    },
+     UNIT: {
+      type: Sequelize.STRING,
+      allowNull: true
+    },
+    DISCOUNT_PER: {
+      type: Sequelize.INTEGER,
+      allowNull: true
+    },
+       DISCOUNT_AMT: {
+      type: Sequelize.INTEGER,
+      allowNull: true
+    },
+      TOTAL_NET: {
       type: Sequelize.INTEGER,
       allowNull: true
     },
