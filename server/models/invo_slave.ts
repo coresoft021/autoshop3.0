@@ -53,6 +53,10 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       type: Sequelize.INTEGER,
       allowNull: true
     },
+        TOTAL_GROSS: {
+      type: Sequelize.INTEGER,
+      allowNull: true
+    },
   
   }, {
     tableName: 'tas_invo_slave',
