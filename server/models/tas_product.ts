@@ -12,28 +12,28 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       allowNull: false
     },
     PRODUCT_CODE: {
-      type: Sequelize.STRING(8),
+      type: Sequelize.STRING(10),
       allowNull: false
     },
       NET_PRICE: {
-      type: Sequelize.INTEGER(5),
+      type: Sequelize.INTEGER(15),
       allowNull: false
     },
     
     TAX: {
-      type: Sequelize.INTEGER(2),
+      type: Sequelize.INTEGER(5),
       allowNull: false
     },
     AVAIL_QTY: {
-      type: Sequelize.INTEGER(5),
+      type: Sequelize.INTEGER(15),
       allowNull: false
     },
       NET_PURCHASE_PRICE: {
-      type: Sequelize.INTEGER(5),
+      type: Sequelize.INTEGER(15),
       allowNull: false
     },
        UNIT: {
-      type: Sequelize.STRING(5),
+      type: Sequelize.STRING(10),
       allowNull: false
     },
   
