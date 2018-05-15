@@ -3,7 +3,10 @@ import { Tas_users } from '../models/tas_users';
 import { Tas_products } from '../models/tas_product';
 import { Tas_invo_slave } from '../models/invo_slave';
 import { Tas_invoice_master  } from '../models/invo_master';
-
+import { Tas_sales_count } from '../models/sales_count';
+import { Tas_customers } from '../models/customer_table';
+import { Tas_expence_category  } from '../models/expence_category';
+import { Tas_income_expence  } from '../models/income_expence';
 
 import { Sequelize, sequelize } from './dbcon';
 const publicRouter: Router = Router();
