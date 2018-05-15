@@ -11,52 +11,21 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       type: Sequelize.INTEGER,
       allowNull: false
     },
-    CUSTOMER_NAME: {
+    ITEM_NAME: {
       type: Sequelize.STRING,
       allowNull: true
     },
-      CUSTOMER_ADDRESS: {
+      ITEM_COUNT: {
       type: Sequelize.STRING,
       allowNull: true
     },
-     CUSTOMER_PHONE: {
-      type: Sequelize.INTEGER,
-      allowNull: true
-    },
-     CUSTOMER_VAT_ID: {
-      type: Sequelize.STRING,
-      allowNull: true
-    },
-     
-      SUB_TOTAL: {
+    
+      ON_STOCK: {
       type: Sequelize.DECIMAL(10, 2),
       allowNull: false
     },
     
-    TAX_COLLECTED: {
-      type: Sequelize.DECIMAL(10, 2),
-      allowNull: false
-    },
-     GROSS_TOTAL: {
-      type: Sequelize.DECIMAL(10, 2),
-      allowNull: false
-    },
-      ITEM_LENGTH: {
-      type: Sequelize.INTEGER,
-      allowNull: true
-    },
-      DISCOUNT_TOTAL: {
-      type: Sequelize.DECIMAL(10, 2),
-      allowNull: true
-    },
-    TOTAL_PAYED: {
-      type: Sequelize.DECIMAL(10, 2),
-      allowNull: true
-    },
-    TOTAL_DUE: {
-      type: Sequelize.DECIMAL(10, 2),
-      allowNull: true
-    },
+  
      IS_PARTIAL_PAY: {
       type: Sequelize.BOOLEAN,
       allowNull: true
