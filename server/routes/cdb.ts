@@ -20,6 +20,21 @@ const dbRouter: Router = Router();
 
 dbRouter.get("/all", (request: Request, response: Response) => {
   
+   Tas_invoice_master.sync({force: true}).then(() => {
+   //Table created
+  return Tas_sales_count.create({
+    
+     INVOICE_NUMBER : 1,
+     SUB_TOTAL: 0,
+     TAX_COLLECTED: 0,
+      GROSS_TOTAL : 0,
+    
+    
+    
+    })
+   })
+  
+  
    Tas_sales_count.sync({force: true}).then(() => {
    //Table created
   return Tas_sales_count.create({
