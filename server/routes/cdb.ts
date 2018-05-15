@@ -61,14 +61,12 @@ dbRouter.get("/all", (request: Request, response: Response) => {
     })
    })
   
-     Tas_expence_category.sync({force: true}).then(() => {
+     Tas_customers.sync({force: true}).then(() => {
    //Table created
   return Tas_expence_category.create({
     
-     CATEGORY_NAME : '',
-     CATEGORY_TYPE: '',
-     AMOUNT: 0,
-     IS_PURCHASE: true,
+     CUSTOMER_NAME : '',
+     
    
     
     
