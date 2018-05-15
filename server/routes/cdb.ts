@@ -63,7 +63,7 @@ dbRouter.get("/all", (request: Request, response: Response) => {
   
      Tas_customers.sync({force: true}).then(() => {
    //Table created
-  return Tas_expence_category.create({
+  return Tas_customers.create({
     
      CUSTOMER_NAME : '',
      
