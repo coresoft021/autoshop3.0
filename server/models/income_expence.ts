@@ -32,7 +32,7 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
     
     TAX_COLLECTED: {
       type: Sequelize.INTEGER(20),
-      allowNull: false
+      allowNull: true
     },
      TOTAL_AMOUNT: {
       type: Sequelize.INTEGER(25),
