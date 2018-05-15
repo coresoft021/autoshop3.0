@@ -7,33 +7,25 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       primaryKey: true,
       autoIncrement: true
     },
-    CUSTOMER_NAME: {
+    CATEGORY_NAME: {
       type: Sequelize.STRING(15),
       allowNull: false
     },
-    STREET: {
+    CATEGORY_TYPE: {
       type: Sequelize.STRING(15),
       allowNull: true
     },
-     CITY: {
-      type: Sequelize.STRING(15),
-      allowNull: true
-    },
-    
-    TIN: {
-      type: Sequelize.STRING(15),
+     AMOUNT: {
+      type: Sequelize.INTEGER(25),
       allowNull: true
     },
     
-     PHONE_NUMBER: {
-      type: Sequelize.STRING(15),
-      allowNull: true
+    IS_PURCHASE: {
+        type: Sequelize.BOOLEAN,
+        allowNull: true
     },
     
-       E_MAIL: {
-      type: Sequelize.STRING(15),
-      allowNull: true
-    },
+   
   
   }, {
     tableName: 'tas_expence_category',
