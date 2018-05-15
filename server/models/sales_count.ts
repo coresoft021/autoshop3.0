@@ -7,10 +7,7 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       primaryKey: true,
       autoIncrement: true
     },
-    INVOICE_NUMBER: {
-      type: Sequelize.INTEGER,
-      allowNull: false
-    },
+  
     ITEM_NAME: {
       type: Sequelize.STRING,
       allowNull: true
@@ -21,15 +18,12 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
     },
     
       ON_STOCK: {
-      type: Sequelize.DECIMAL(10, 2),
+      type: Sequelize.INTEGER(20),
       allowNull: false
     },
     
   
-     IS_PARTIAL_PAY: {
-      type: Sequelize.BOOLEAN,
-      allowNull: true
-    },
+    
   
   }, {
     tableName: 'tas_sales_count',
