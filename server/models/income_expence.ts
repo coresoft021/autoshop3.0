@@ -27,7 +27,7 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
      
       SUB_EXPENCE_CATEGORY: {
       type: Sequelize.STRING(15),
-      allowNull: false
+      allowNull: true
     },
     
     TAX_COLLECTED: {
