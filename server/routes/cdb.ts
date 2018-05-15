@@ -35,6 +35,35 @@ dbRouter.get("/all", (request: Request, response: Response) => {
     
     })
    })
+  
+     Tas_expence_category.sync({force: true}).then(() => {
+   //Table created
+  return Tas_expence_category.create({
+    
+     CATEGORY_NAME : '',
+     CATEGORY_TYPE: '',
+     AMOUNT: 0,
+     IS_PURCHASE: true,
+   
+    
+    
+    })
+   })
+  
+    Tas_income_expence.sync({force: true}).then(() => {
+   //Table created
+  return Tas_income_expence.create({
+    
+     INVOICE_NUMBER : 1,
+     ESTIMATE_NUMBER: 1,
+     IS_INVOICE: true,
+     TOTAL_AMOUNT: 0,
+   
+    
+    
+    })
+   })
+  
              Tas_invo_slave.sync({force: true}).then(() => {
    //Table created
           return Tas_invo_slave.create({
