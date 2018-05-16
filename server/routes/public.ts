@@ -38,7 +38,7 @@ Tas_customers.findOne({ where: { TIN:  request.body.tin } }).then(person => {
                                         CITY: request.body.city,
                                         TIN: request.body.tin,
                                         PHONE_NUMBER : request.body.phone_no,
-                                        EMAIL :request.body.email,
+                                        E_MAIL :request.body.email,
                                        
                                         })
      
