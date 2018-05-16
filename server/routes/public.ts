@@ -19,6 +19,45 @@ publicRouter.get("/simple", (request: Request, response: Response) => {
   });
 });
 
+
+publicRouter.post('/add_customer', (request: Request, response: Response) => {
+  
+  
+Tas_customers.findOne({ where: { TIN:  request.body.tin } }).then(person => {
+
+  if(person){
+  
+                  return response.json({success:true, msg:'tin already existed'});
+            }
+  
+           
+                           else{
+                                    Tas_customers.create({
+                                        CUSTOMER_NAME: request.body.product_name,
+                                        STREET: request.body.street,
+                                        CITY: request.body.city,
+                                        TIN: request.body.tin,
+                                        PHONE_NUMBER : request.body.phone_no,
+                                        EMAIL :request.body.email,
+                                       
+                                        })
+     
+                                      return response.json({success:true, msg:'Successfully saved'});
+    
+                                 }
+            }) 
+
+      
+  
+  
+
+})
+
+
+
+
+
+
  publicRouter.post('/get_a_invoice', (request: Request, response: Response) => {
  
    
