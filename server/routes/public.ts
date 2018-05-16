@@ -20,6 +20,18 @@ publicRouter.get("/simple", (request: Request, response: Response) => {
 });
 
 
+publicRouter.get('/list_customers', (request: Request, response: Response) => {
+ 
+   
+  Tas_customers.findAll({
+  
+ }).
+then(users => {
+  response.send(users);
+  });
+
+});
+
 publicRouter.post('/add_customer', (request: Request, response: Response) => {
   
   
