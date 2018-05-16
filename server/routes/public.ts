@@ -33,7 +33,7 @@ Tas_customers.findOne({ where: { TIN:  request.body.tin } }).then(person => {
            
                            else{
                                     Tas_customers.create({
-                                        CUSTOMER_NAME: request.body.product_name,
+                                        CUSTOMER_NAME: request.body.customer_name,
                                         STREET: request.body.street,
                                         CITY: request.body.city,
                                         TIN: request.body.tin,
