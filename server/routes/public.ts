@@ -14,10 +14,23 @@ const Op = Sequelize.Op;
 
 publicRouter.get("/simple", (request: Request, response: Response) => {
   response.json({
-    text: "fucked",
+    text: "cokked",
     title: "Greetings.",
   });
 });
+
+
+ publicRouter.post('/reports', (request: Request, response: Response) => {
+    var option = request.body.option ;
+   if (option === 2)
+   {
+   }
+   else
+   {
+   }
+   
+   })
+
 
 
 publicRouter.get('/list_customers', (request: Request, response: Response) => {
