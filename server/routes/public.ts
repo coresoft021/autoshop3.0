@@ -20,15 +20,34 @@ publicRouter.get("/simple", (request: Request, response: Response) => {
 });
 
 
- publicRouter.post('/reports', (request: Request, response: Response) => {
+  publicRouter.post('/reports', (request: Request, response: Response) => {
     var option = request.body.option ;
    if (option === 2)
    {
+      Tas_income_expence.findAll({
+        where: { createdAt: {[Op.between]:  [request.body.from_date ,  request.body.to_date ]}}
+                                })
+         .then(users=> 
+              {
+                 if(users)
+                    {
+                       response.send(users);
+
+                    }
+
+               else
+                   {
+                       return response.json({success:true, msg:'No records found'});
+                   }
+        
+             })
    }
-   else
-   {
-   }
-   
+
+   else {
+         return response.json({success:true, msg:'in else'});
+
+       }
+
    })
 
 
