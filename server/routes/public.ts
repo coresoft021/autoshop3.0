@@ -19,6 +19,38 @@ publicRouter.get("/simple", (request: Request, response: Response) => {
   });
 });
 
+publicRouter.post('/add_category', (request: Request, response: Response) => {
+  
+  
+Tas_expence_category.findOne({ where: { CATEGORY_NAME:  request.body.Category_name } }).then(person => {
+
+  if(person){
+  
+                  return response.json({success:true, msg:'Category name already existed'});
+            }
+  
+           
+                           else{
+                                    Tas_expence_category.create({
+                                        CATEGORY_NAME: request.body.Category_name,
+                                        CATEGORY_TYPE: request.body.cat_type,
+                                        IS_PURCHASE: request.body.is_purchase,
+                                        AMOUNT : 0,
+                                       
+                                        })
+     
+                                      return response.json({success:true, msg:'Successfully saved'});
+    
+                                 }
+            }) 
+
+      
+  
+  
+
+})
+
+
 
   publicRouter.post('/reports', (request: Request, response: Response) => {
     var option = request.body.option ;
