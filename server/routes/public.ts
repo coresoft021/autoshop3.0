@@ -22,11 +22,11 @@ publicRouter.get("/simple", (request: Request, response: Response) => {
 publicRouter.post('/add_expence_entry', (request: Request, response: Response) => {
   
   
-Tas_income_expence.create({
+Tas_income_expence.create({             
                                         EXPENCE_CATEGORY: request.body.is_purchase,
                                         EXP_FROM_DATE: request.body.from_date,
                                         EXP_TO_DATE: request.body.to_date,
-                                        AMOUNT : request.body.amount,
+                                        TOTAL_AMOUNT : request.body.amount,
                                         BENFICIARY : request.body.beneficiary,
                                         REMARKS : request.body.remarks,
                                         TRAN_TYPE : 3,
@@ -40,7 +40,16 @@ Tas_income_expence.create({
 
       
   
-
+  return Tas_income_expence.create({
+    
+     INVOICE_NUMBER : 1,
+     ESTIMATE_NUMBER: 1,
+     IS_INVOICE: true,
+     TOTAL_AMOUNT: 0,
+   
+    
+    
+    })
 
 
 
