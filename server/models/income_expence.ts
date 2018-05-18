@@ -9,23 +9,19 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
     },
     INVOICE_NUMBER: {
       type: Sequelize.INTEGER,
-      allowNull: false
+      allowNull: true
     },
       ESTIMATE_NUMBER: {
       type: Sequelize.INTEGER,
-      allowNull: false
-    },
-      IS_INVOICE: {
-      type: Sequelize.BOOLEAN,
       allowNull: true
     },
-    
+        
      TRAN_TYPE: {
       type: Sequelize.INTEGER,
       allowNull: true
     },
      
-      SUB_EXPENCE_CATEGORY: {
+      EXPENCE_CATEGORY: {
       type: Sequelize.STRING(15),
       allowNull: true
     },
