@@ -47,6 +47,22 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       type: Sequelize.BOOLEAN,
       allowNull: true
     },
+      EXP_FROM_DATE: {
+      type: Sequelize.DATE,
+      allowNull: true
+    },
+      EXP_TO_DATE: {
+      type: Sequelize.DATE,
+      allowNull: true
+    },
+      REMARKS: {
+      type: Sequelize.TEXT,
+      allowNull: true
+    },
+    BENFICIARY: {
+      type: Sequelize.TEXT,
+      allowNull: true
+    },
   
   }, {
     tableName: 'tas_income_expence',
