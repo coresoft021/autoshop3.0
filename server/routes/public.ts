@@ -40,17 +40,7 @@ Tas_income_expence.create({
 
       
   
-  return Tas_income_expence.create({
-    
-     INVOICE_NUMBER : 1,
-     ESTIMATE_NUMBER: 1,
-     IS_INVOICE: true,
-     TOTAL_AMOUNT: 0,
-   
-    
-    
-    })
-
+ 
 
 
 publicRouter.get('/list_expence_category', (request: Request, response: Response) => {
