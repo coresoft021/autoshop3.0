@@ -29,6 +29,7 @@ Tas_income_expence.create({
                                         AMOUNT : request.body.amount,
                                         BENFICIARY : request.body.beneficiary,
                                         REMARKS : request.body.remarks,
+                                        TRAN_TYPE : 3,
                                        
                                         })
      
