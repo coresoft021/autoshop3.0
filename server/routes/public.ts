@@ -19,6 +19,22 @@ publicRouter.get("/simple", (request: Request, response: Response) => {
   });
 });
 
+
+publicRouter.get('/list_expence_category', (request: Request, response: Response) => {
+ 
+   
+  Tas_expence_category.findAll({
+   attributes: ['CATEGORY_NAME']
+ }).
+then(users => {
+  response.send(users);
+  });
+
+});
+
+
+
+
 publicRouter.post('/add_category', (request: Request, response: Response) => {
   
   
