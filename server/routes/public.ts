@@ -19,6 +19,62 @@ publicRouter.get("/simple", (request: Request, response: Response) => {
   });
 });
 
+publicRouter.post('/post_invoice', (request: Request, response: Response) => {
+
+    Tas_invoice_master.create({
+         INVOICE_NUMBER : request.body.invoice_number,
+         CUSTOMER_NAME  : request.body.cus_name,
+         CUSTOMER_ADDRESS    : request.body.cus_address,
+         CUSTOMER_PHONE  : request.body.cus_phone,
+         CUSTOMER_VAT_ID    : request.body.cus_phone,
+         SUB_TOTAL      : request.body.sub_total,
+         TAX_COLLECTED      : request.body.total_tax,
+         GROSS_TOTAL    : request.body.gross_total,
+         ITEM_LENGTH    :request.body.length,
+         DISCOUNT_TOTAL  :request.body.discount_total,
+         TOTAL_PAYED   : request.body.total_payed,
+         TOTAL_DUE    :request.body.total_due,
+         IS_PARTIAL_PAY : request.body.is_partial_pay
+ })
+    
+   for (var index = 0; index < request.body.length; index++) {
+    
+        Tas_invo_slave.create({ 
+                             SI_NO : request.body.items[index].SI_NO,
+                             PRODUCT_CODE : request.body.items[index].PRODUCT_CODE,
+                             PRODUCT_NAME : request.body.items[index].PRODUCT_NAME,
+                             TAX : request.body.items[index].TAX,
+                             UNIT : request.body.items[index].UNIT,
+                             QUANTITY: request.body.items[index].QUANTITY,
+                             TAS_MASTER_ID: request.body.invoice_number,
+                             NET_PRICE: request.body.items[index].NET_PRICE,
+                             DISCOUNT_PER : request.body.items[index].DISCOUNT_PER,
+                             DISCOUNT_AMT : request.body.items[index].DISCOUNT_AMT,
+                             TOTAL_NET : request.body.items[index].TOTAL_NET,
+                             TOTAL_GROSS : request.body.items[index].TOTAL_GROSS
+                        })
+   }
+       
+    return response.json({success:true, msg:'Successfully saved'});
+    
+         
+ });
+ publicRouter.get('/list_pdts', (request: Request, response: Response) => {
+ 
+   
+  Tas_products.findAll({
+  
+ }).
+then(users => {
+  response.send(users);
+  });
+
+});
+
+
+
+
+
 publicRouter.post('/add_expence_entry', (request: Request, response: Response) => {
   
   
@@ -222,57 +278,6 @@ then(users => {
 
 });
 
-publicRouter.post('/post_invoice', (request: Request, response: Response) => {
-
-    Tas_invoice_master.create({
-         INVOICE_NUMBER : request.body.invoice_number,
-         CUSTOMER_NAME  : request.body.cus_name,
-         CUSTOMER_ADDRESS    : request.body.cus_address,
-         CUSTOMER_PHONE  : request.body.cus_phone,
-         CUSTOMER_VAT_ID    : request.body.cus_phone,
-         SUB_TOTAL      : request.body.sub_total,
-         TAX_COLLECTED      : request.body.total_tax,
-         GROSS_TOTAL    : request.body.gross_total,
-         ITEM_LENGTH    :request.body.length,
-         DISCOUNT_TOTAL  :request.body.discount_total,
-         TOTAL_PAYED   : request.body.total_payed,
-         TOTAL_DUE    :request.body.total_due,
-         IS_PARTIAL_PAY : request.body.is_partial_pay
- })
-    
-   for (var index = 0; index < request.body.length; index++) {
-    
-        Tas_invo_slave.create({ 
-                             SI_NO : request.body.items[index].SI_NO,
-                             PRODUCT_CODE : request.body.items[index].PRODUCT_CODE,
-                             PRODUCT_NAME : request.body.items[index].PRODUCT_NAME,
-                             TAX : request.body.items[index].TAX,
-                             UNIT : request.body.items[index].UNIT,
-                             QUANTITY: request.body.items[index].QUANTITY,
-                             TAS_MASTER_ID: request.body.invoice_number,
-                             NET_PRICE: request.body.items[index].NET_PRICE,
-                             DISCOUNT_PER : request.body.items[index].DISCOUNT_PER,
-                             DISCOUNT_AMT : request.body.items[index].DISCOUNT_AMT,
-                             TOTAL_NET : request.body.items[index].TOTAL_NET,
-                             TOTAL_GROSS : request.body.items[index].TOTAL_GROSS
-                        })
-   }
-       
-    return response.json({success:true, msg:'Successfully saved'});
-    
-         
- });
- publicRouter.get('/list_pdts', (request: Request, response: Response) => {
- 
-   
-  Tas_products.findAll({
-  
- }).
-then(users => {
-  response.send(users);
-  });
-
-});
 
    publicRouter.post('/get_invoice_number', (request: Request, response: Response) => {
     Tas_invoice_master.count().then(c => {
