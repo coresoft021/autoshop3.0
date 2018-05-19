@@ -13,12 +13,9 @@ const publicRouter: Router = Router();
 const Op = Sequelize.Op;
 
 
-
-
-  publicRouter.post('/reports', (request: Request, response: Response) => {
-    var option = request.body.option ;
-   if (option === 2)
-   {
+  publicRouter.post('/reports_income', (request: Request, response: Response) => {
+ 
+   
       Tas_income_expence.findAll({
         where: { createdAt: {[Op.between]:  [request.body.from_date ,  request.body.to_date ]}, TRAN_TYPE : 1}
                                 })
@@ -36,41 +33,32 @@ const Op = Sequelize.Op;
                    }
         
              })
-   }
-
-   else if (option === 3) {
-     
-                    Tas_income_expence.findAll({
-                    where: { createdAt: {[Op.between]:  [request.body.from_date ,  request.body.to_date ]}, TRAN_TYPE : 3}
-                                })
-                               .then(users=> 
-                                              {
-                                                 if(users)
-                                                     {
-                                                         response.send(users);
-
-                                                      }
-
-                                                 else
-                                                       {
-                                                          return response.json({success:true, msg:'No records found'});
-                                                       }
-        
-                                              })   
-     
-         return response.json({success:true, msg:'in else'});
-
-       }
-    
-    else if (option === 1)
-    {
-       return response.json({success:true, msg:'in else'});
-    }
-
+   
    })
 
 
+  publicRouter.post('/reports_expence', (request: Request, response: Response) => {
+ 
+   
+      Tas_income_expence.findAll({
+        where: { createdAt: {[Op.between]:  [request.body.from_date ,  request.body.to_date ]}, TRAN_TYPE : 3}
+                                })
+         .then(users=> 
+              {
+                 if(users)
+                    {
+                       response.send(users);
 
+                    }
+
+               else
+                   {
+                       return response.json({success:true, msg:'No records found'});
+                   }
+        
+             })
+   
+   })
 
 
 
