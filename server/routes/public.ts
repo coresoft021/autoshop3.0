@@ -21,6 +21,19 @@ publicRouter.get("/simple", (request: Request, response: Response) => {
 
 publicRouter.post('/post_invoice', (request: Request, response: Response) => {
 
+  
+  
+      Tas_income_expence.create({             
+                                        EXPENCE_CATEGORY: request.body.is_purchase,
+                                        EXP_FROM_DATE: request.body.from_date,
+                                        EXP_TO_DATE: request.body.to_date,
+                                        TOTAL_AMOUNT : request.body.amount,
+                                        BENFICIARY : request.body.beneficiary,
+                                        REMARKS : request.body.remarks,
+                                        TRAN_TYPE : 3,
+                                       
+                                        })
+  
     Tas_invoice_master.create({
          INVOICE_NUMBER : request.body.invoice_number,
          CUSTOMER_NAME  : request.body.cus_name,
