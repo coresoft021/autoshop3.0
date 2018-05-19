@@ -27,9 +27,11 @@ publicRouter.post('/post_invoice', (request: Request, response: Response) => {
                                         INVOICE_NUMBER : request.body.invoice_number,
                                         TOTAL_AMOUNT : request.body.sub_total,
                                         TAX_COLLECTED      : request.body.total_tax,
-                                        BENFICIARY : request.body.beneficiary,
+                                        TOTAL_PAYED   : request.body.total_payed,
+                                        TOTAL_DUE    :request.body.total_due,
+                                        IS_PARTIAL_PAY : request.body.is_partial_pay,
                                         REMARKS : request.body.remarks,
-                                        TRAN_TYPE : 3,
+                                        TRAN_TYPE : 1,
                                        
                                         })
   
