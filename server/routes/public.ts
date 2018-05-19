@@ -166,7 +166,7 @@ Tas_expence_category.findOne({ where: { CATEGORY_NAME:  request.body.Category_na
    if (option === 2)
    {
       Tas_income_expence.findAll({
-        where: { createdAt: {[Op.between]:  [request.body.from_date ,  request.body.to_date ]}}
+        where: { createdAt: {[Op.between]:  [request.body.from_date ,  request.body.to_date ]}, TRAN_TYPE : 1}
                                 })
          .then(users=> 
               {
