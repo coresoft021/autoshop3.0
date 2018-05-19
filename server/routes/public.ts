@@ -12,6 +12,71 @@ import { Sequelize, sequelize } from './dbcon';
 const publicRouter: Router = Router();
 const Op = Sequelize.Op;
 
+
+
+
+  publicRouter.post('/reports', (request: Request, response: Response) => {
+    var option = request.body.option ;
+   if (option === 2)
+   {
+      Tas_income_expence.findAll({
+        where: { createdAt: {[Op.between]:  [request.body.from_date ,  request.body.to_date ]}, TRAN_TYPE : 1}
+                                })
+         .then(users=> 
+              {
+                 if(users)
+                    {
+                       response.send(users);
+
+                    }
+
+               else
+                   {
+                       return response.json({success:true, msg:'No records found'});
+                   }
+        
+             })
+   }
+
+   else if (option === 3) {
+     
+                    Tas_income_expence.findAll({
+                    where: { createdAt: {[Op.between]:  [request.body.from_date ,  request.body.to_date ]}, TRAN_TYPE : 1}
+                                })
+                               .then(users=> 
+                                              {
+                                                 if(users)
+                                                     {
+                                                         response.send(users);
+
+                                                      }
+
+                                                 else
+                                                       {
+                                                          return response.json({success:true, msg:'No records found'});
+                                                       }
+        
+                                              })   
+     
+         return response.json({success:true, msg:'in else'});
+
+       }
+    
+    else if (option === 1)
+    {
+       return response.json({success:true, msg:'in else'});
+    }
+
+   })
+
+
+
+
+
+
+
+
+
 publicRouter.get("/simple", (request: Request, response: Response) => {
   response.json({
     text: "cokked",
@@ -161,35 +226,6 @@ Tas_expence_category.findOne({ where: { CATEGORY_NAME:  request.body.Category_na
 
 
 
-  publicRouter.post('/reports', (request: Request, response: Response) => {
-    var option = request.body.option ;
-   if (option === 2)
-   {
-      Tas_income_expence.findAll({
-        where: { createdAt: {[Op.between]:  [request.body.from_date ,  request.body.to_date ]}, TRAN_TYPE : 1}
-                                })
-         .then(users=> 
-              {
-                 if(users)
-                    {
-                       response.send(users);
-
-                    }
-
-               else
-                   {
-                       return response.json({success:true, msg:'No records found'});
-                   }
-        
-             })
-   }
-
-   else {
-         return response.json({success:true, msg:'in else'});
-
-       }
-
-   })
 
 
 
