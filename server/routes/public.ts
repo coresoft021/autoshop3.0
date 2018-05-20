@@ -64,7 +64,7 @@ publicRouter.post('/update_invoice', (request: Request, response: Response) => {
                                where: { TAS_MASTER_ID:  request.body.invoice_number , SI_NO : request.body.items[index].SI_NO } })
                              
                              
-   
+   }
        
     return response.json({success:true, msg:'Successfully saved'});
     
