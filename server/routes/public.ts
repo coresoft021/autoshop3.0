@@ -16,22 +16,18 @@ const Op = Sequelize.Op;
 
 publicRouter.post('/update_invoice', (request: Request, response: Response) => {
 
-  
-  
-      Tas_income_expence.create({             
-                                        INVOICE_NUMBER : request.body.invoice_number,
+  Tas_income_expence.update({ 
                                         TOTAL_AMOUNT : request.body.sub_total,
                                         TAX_COLLECTED      : request.body.total_tax,
                                         TOTAL_PAYED   : request.body.total_payed,
                                         TOTAL_DUE    :request.body.total_due,
                                         IS_PARTIAL_PAY : request.body.is_partial_pay,
-                                        REMARKS : request.body.remarks,
-                                        TRAN_TYPE : 1,
-                                       
-                                        })
+}, {
   
-    Tas_invoice_master.create({
-         INVOICE_NUMBER : request.body.invoice_number,
+  
+  where: { INVOICE_NUMBER:  request.body.invoice_number } })
+           
+ Tas_invoice_master.update({
          CUSTOMER_NAME  : request.body.cus_name,
          CUSTOMER_ADDRESS    : request.body.cus_address,
          CUSTOMER_PHONE  : request.body.cus_phone,
@@ -44,11 +40,15 @@ publicRouter.post('/update_invoice', (request: Request, response: Response) => {
          TOTAL_PAYED   : request.body.total_payed,
          TOTAL_DUE    :request.body.total_due,
          IS_PARTIAL_PAY : request.body.is_partial_pay
- })
+                  
+                  } , { 
+                          where: { INVOICE_NUMBER:  request.body.invoice_number } })
+  
+      
     
    for (var index = 0; index < request.body.length; index++) {
     
-        Tas_invo_slave.create({ 
+        Tas_invo_slave.update({ 
                              SI_NO : request.body.items[index].SI_NO,
                              PRODUCT_CODE : request.body.items[index].PRODUCT_CODE,
                              PRODUCT_NAME : request.body.items[index].PRODUCT_NAME,
@@ -61,8 +61,11 @@ publicRouter.post('/update_invoice', (request: Request, response: Response) => {
                              DISCOUNT_AMT : request.body.items[index].DISCOUNT_AMT,
                              TOTAL_NET : request.body.items[index].TOTAL_NET,
                              TOTAL_GROSS : request.body.items[index].TOTAL_GROSS
-                        })
-   }
+                        } , {
+                               where: { INVOICE_NUMBER:  request.body.invoice_number } })
+                             
+                             
+   
        
     return response.json({success:true, msg:'Successfully saved'});
     
