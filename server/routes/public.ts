@@ -46,7 +46,7 @@ publicRouter.post('/update_invoice', (request: Request, response: Response) => {
   
       
     
-   for (var index = 0; index < request.body.length; index++) {
+   for (var index = 1; index < request.body.length; index++) {
     
         Tas_invo_slave.update({ 
                              
