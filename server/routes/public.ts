@@ -44,9 +44,9 @@ publicRouter.post('/update_invoice', (request: Request, response: Response) => {
                   } , { 
                           where: { INVOICE_NUMBER:  request.body.invoice_number } })
   
-      
+      var len = request.body.length - 1 ;
     
-   for (var index = 1; index < request.body.length; index++) {
+   for (var index = 0; index < len ; index++) {
     
         Tas_invo_slave.update({ 
                              
