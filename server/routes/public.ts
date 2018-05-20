@@ -49,20 +49,19 @@ publicRouter.post('/update_invoice', (request: Request, response: Response) => {
    for (var index = 0; index < request.body.length; index++) {
     
         Tas_invo_slave.update({ 
-                             SI_NO : request.body.items[index].SI_NO,
+                             
                              PRODUCT_CODE : request.body.items[index].PRODUCT_CODE,
                              PRODUCT_NAME : request.body.items[index].PRODUCT_NAME,
                              TAX : request.body.items[index].TAX,
                              UNIT : request.body.items[index].UNIT,
                              QUANTITY: request.body.items[index].QUANTITY,
-                             TAS_MASTER_ID: request.body.invoice_number,
                              NET_PRICE: request.body.items[index].NET_PRICE,
                              DISCOUNT_PER : request.body.items[index].DISCOUNT_PER,
                              DISCOUNT_AMT : request.body.items[index].DISCOUNT_AMT,
                              TOTAL_NET : request.body.items[index].TOTAL_NET,
                              TOTAL_GROSS : request.body.items[index].TOTAL_GROSS
                         } , {
-                               where: { INVOICE_NUMBER:  request.body.invoice_number } })
+                               where: { TAS_MASTER_ID:  request.body.invoice_number , SI_NO : request.body.items[index].SI_NO } })
                              
                              
    
