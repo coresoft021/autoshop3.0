@@ -37,7 +37,7 @@ publicRouter.post('/update_invoice', (request: Request, response: Response) => {
          GROSS_TOTAL    : request.body.gross_total,
          ITEM_LENGTH    :request.body.length - 1,
          DISCOUNT_TOTAL  :request.body.discount_total,
-         TOTAL_PAYED   : request.body.total_payed,
+         TOTAL_PAYED   :  request.body.total_payed,
          TOTAL_DUE    :request.body.total_due,
          IS_PARTIAL_PAY : request.body.is_partial_pay
                   
