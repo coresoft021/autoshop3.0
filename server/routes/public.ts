@@ -20,7 +20,7 @@ const Op = Sequelize.Op;
  
    
       Tas_invo_slave.findAll({
-        where: { createdAt: {[Op.between]:  [request.body.from_date ,  request.body.to_date ]}, TRAN_TYPE : 1}
+        where: { createdAt: {[Op.between]:  [request.body.from_date ,  request.body.to_date ]}}
                                 })
          .then(users=> 
               {
