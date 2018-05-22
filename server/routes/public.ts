@@ -14,6 +14,32 @@ const Op = Sequelize.Op;
 
 
 
+
+
+  publicRouter.post('/sales_report', (request: Request, response: Response) => {
+ 
+   
+      Tas_invo_slave.findAll({
+        where: { createdAt: {[Op.between]:  [request.body.from_date ,  request.body.to_date ]}, TRAN_TYPE : 1}
+                                })
+         .then(users=> 
+              {
+                 if(users)
+                    {
+                       response.send(users);
+
+                    }
+
+               else
+                   {
+                       return response.json({success:true, msg:'No records found'});
+                   }
+        
+             })
+   
+   })
+
+
 publicRouter.post('/update_invoice', (request: Request, response: Response) => {
 
   Tas_income_expence.update({ 
