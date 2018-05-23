@@ -13,7 +13,29 @@ const publicRouter: Router = Router();
 const Op = Sequelize.Op;
 
 
+ publicRouter.post('/partial_pay_report', (request: Request, response: Response) => {
+ 
+   
+      Tas_invoice_master.findAll({
+         attributes: ['INVOICE_NUMBER', 'CUSTOMER_NAME','GROSS_TOTAL', 'TOTAL_PAYED','TOTAL_DUE'] ,
+        where: { IS_PARTIAL_PAY:  true  }
+                                })
+         .then(users=> 
+              {
+                 if(users)
+                    {
+                       response.send(users);
 
+                    }
+
+               else
+                   {
+                       return response.json({success:true, msg:'No records found'});
+                   }
+        
+             })
+   
+   })
 
 
 
