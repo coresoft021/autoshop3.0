@@ -16,6 +16,31 @@ const Op = Sequelize.Op;
 
 
 
+
+ publicRouter.post('/tax_report', (request: Request, response: Response) => {
+ 
+   
+      Tas_invoice_master.findAll({
+         attributes: ['INVOICE_NUMBER', 'CUSTOMER_NAME','TAX_COLLECTED'] ,
+        where: { createdAt: {[Op.between]:  [request.body.from_date ,  request.body.to_date ]}}
+                                })
+         .then(users=> 
+              {
+                 if(users)
+                    {
+                       response.send(users);
+
+                    }
+
+               else
+                   {
+                       return response.json({success:true, msg:'No records found'});
+                   }
+        
+             })
+   
+   })
+
   publicRouter.post('/sales_report', (request: Request, response: Response) => {
  
    
