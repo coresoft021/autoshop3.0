@@ -39,7 +39,7 @@ dbRouter.get("/all", (request: Request, response: Response) => {
   
     Tas_estimate_master.sync({force: true}).then(() => {
    //Table created
-  return Tas_invoice_master.create({
+  return Tas_estimate_master.create({
     
      INVOICE_NUMBER : 1,
      SUB_TOTAL: 0,
@@ -54,7 +54,7 @@ dbRouter.get("/all", (request: Request, response: Response) => {
   
              Tas_estimate_slave.sync({force: true}).then(() => {
    //Table created
-          return Tas_invo_slave.create({
+          return Tas_estimate_slave.create({
     
             TAS_MASTER_ID: 1,
             PRODUCT_NAME : 'P',
