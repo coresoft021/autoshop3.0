@@ -8,6 +8,9 @@ import { Tas_customers } from '../models/customer_table';
 import { Tas_expence_category  } from '../models/expence_category';
 import { Tas_income_expence  } from '../models/income_expence';
 import { Sequelize, sequelize } from './dbcon';
+import { Tas_estimate_master } from '../models/esti_master';
+import { Tas_estimate_slave } from '../models/esti_slave';
+ 
 
 const dbRouter: Router = Router();
 
