@@ -37,6 +37,37 @@ dbRouter.get("/all", (request: Request, response: Response) => {
     })
    })
   
+    Tas_estimate_master.sync({force: true}).then(() => {
+   //Table created
+  return Tas_invoice_master.create({
+    
+     INVOICE_NUMBER : 1,
+     SUB_TOTAL: 0,
+     TAX_COLLECTED: 0,
+      GROSS_TOTAL : 0,
+    
+    
+    
+    })
+   })
+  
+  
+             Tas_estimate_slave.sync({force: true}).then(() => {
+   //Table created
+          return Tas_invo_slave.create({
+    
+            TAS_MASTER_ID: 1,
+            PRODUCT_NAME : 'P',
+            QUANTITY : 0,
+            NET_PRICE : 4,
+            DISCOUNT : 0,
+            
+            
+    
+    
+     })
+     
+  })
   
    Tas_sales_count.sync({force: true}).then(() => {
    //Table created
