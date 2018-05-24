@@ -63,7 +63,7 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
     },
   
   }, {
-    tableName: 'tas_invoice_master',
+    tableName: 'tas_estimate_master',
      timestamps: true
   });
 
