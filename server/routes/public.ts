@@ -7,7 +7,8 @@ import { Tas_sales_count } from '../models/sales_count';
 import { Tas_customers } from '../models/customer_table';
 import { Tas_expence_category  } from '../models/expence_category';
 import { Tas_income_expence  } from '../models/income_expence';
-
+import { Tas_estimate_master  } from '../models/esti_master';
+import { Tas_estimate_slave  } from '../models/esti_slave';
 import { Sequelize, sequelize } from './dbcon';
 const publicRouter: Router = Router();
 const Op = Sequelize.Op;
@@ -448,6 +449,18 @@ then(users => {
 
 });
 
+ publicRouter.get('/list_estimate', (request: Request, response: Response) => {
+ 
+   
+  Tas_estimate_master.findAll({
+  
+ }).
+then(users => {
+  response.send(users);
+  });
+
+});
+
 
    publicRouter.post('/get_invoice_number', (request: Request, response: Response) => {
     Tas_invoice_master.count().then(c => {
@@ -459,6 +472,19 @@ then(users => {
             })
    
    })
+
+   publicRouter.post('/get_estimate_number', (request: Request, response: Response) => {
+    Tas_estimate_master.count().then(c => {
+           response.json({
+    text: "counted",
+    count: c,
+  });
+              
+            })
+   
+   })
+
+
 
 
 
