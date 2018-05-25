@@ -94,12 +94,25 @@ const Op = Sequelize.Op;
       
          IS_DELETED : true
                   
-                  } , { 
-                          where: { INVOICE_NUMBER:  request.body.invo_number } })
+                  } , {  where: { INVOICE_NUMBER:  request.body.invo_number } 
+                  
+                                  
+                  
+                         })
 
-                        }
-                   })
+
+     Tas_income_expence.update({ 
+                                        TRAN_TYPE : 0,
+}, {
   
+  
+  where: { INVOICE_NUMBER:  request.body.invo_number } })
+
+  return response.json({success:true, msg:'Invoice Deleted'});
+                        }
+                   )
+  
+
 
 
 
