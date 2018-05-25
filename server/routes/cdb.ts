@@ -27,7 +27,7 @@ dbRouter.get("/all", (request: Request, response: Response) => {
    //Table created
   return Tas_invoice_master.create({
     
-     INVOICE_NUMBER : 1,
+    
      SUB_TOTAL: 0,
      TAX_COLLECTED: 0,
       GROSS_TOTAL : 0,
@@ -41,7 +41,7 @@ dbRouter.get("/all", (request: Request, response: Response) => {
    //Table created
   return Tas_estimate_master.create({
     
-     INVOICE_NUMBER : 1,
+   
      SUB_TOTAL: 0,
      TAX_COLLECTED: 0,
       GROSS_TOTAL : 0,
@@ -57,7 +57,7 @@ dbRouter.get("/all", (request: Request, response: Response) => {
           return Tas_estimate_slave.create({
     
             TAS_MASTER_ID: 1,
-            PRODUCT_NAME : 'P',
+           
             QUANTITY : 0,
             NET_PRICE : 4,
             DISCOUNT : 0,
@@ -73,8 +73,6 @@ dbRouter.get("/all", (request: Request, response: Response) => {
    //Table created
   return Tas_sales_count.create({
     
-     ITEM_NAME : '',
-     ITEM_COUNT: 1,
      ON_STOCK: 5,
     
     
@@ -85,9 +83,7 @@ dbRouter.get("/all", (request: Request, response: Response) => {
    //Table created
   return Tas_expence_category.create({
     
-     CATEGORY_NAME : '',
-     CATEGORY_TYPE: '',
-     AMOUNT: 0,
+   
      IS_PURCHASE: true,
    
     
@@ -99,7 +95,7 @@ dbRouter.get("/all", (request: Request, response: Response) => {
    //Table created
   return Tas_customers.create({
     
-     CUSTOMER_NAME : '',
+   CITY : '',
      
    
     
@@ -111,9 +107,7 @@ dbRouter.get("/all", (request: Request, response: Response) => {
    //Table created
   return Tas_income_expence.create({
     
-     INVOICE_NUMBER : 1,
-     ESTIMATE_NUMBER: 1,
-     IS_INVOICE: true,
+    
      TOTAL_AMOUNT: 0,
    
     
@@ -125,10 +119,7 @@ dbRouter.get("/all", (request: Request, response: Response) => {
    //Table created
           return Tas_invo_slave.create({
     
-            TAS_MASTER_ID: 1,
-            PRODUCT_NAME : 'P',
-            QUANTITY : 0,
-            NET_PRICE : 4,
+          
             DISCOUNT : 0,
             
             
@@ -142,12 +133,7 @@ dbRouter.get("/all", (request: Request, response: Response) => {
    //Table created
           return Tas_products.create({
     
-            PRODUCT_NAME: '',
-            PRODUCT_CODE : 'P',
-            NET_PRICE : 0,
-            TAX : 4,
-            AVAIL_QTY : 0,
-            NET_PURCHASE_PRICE: 0,
+          
             UNIT: 'pc'
             
             
