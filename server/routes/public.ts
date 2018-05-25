@@ -198,17 +198,16 @@ publicRouter.post('/update_invoice', (request: Request, response: Response) => {
 
 
 
-publicRouter.get("/simple", (request: Request, response: Response) => {
-  response.json({
-    text: "cokked",
-    title: "Greetings.",
-  });
-});
-
 publicRouter.post('/post_invoice', (request: Request, response: Response) => {
 
+    Tas_invoice_master.findOne({ where: { INVOICE_NUMBER:  request.body.invoice_number } }).then(person => {
+
+  if(person){
   
-  
+                  return response.json({success:true, msg:'Category name already existed'});
+            }
+  else    {
+    
       Tas_income_expence.create({             
                                         INVOICE_NUMBER : request.body.invoice_number,
                                         TOTAL_AMOUNT : request.body.sub_total,
@@ -254,6 +253,8 @@ publicRouter.post('/post_invoice', (request: Request, response: Response) => {
                              TOTAL_GROSS : request.body.items[index].TOTAL_GROSS
                         })
    }
+    
+  }
        
     return response.json({success:true, msg:'Successfully saved'});
     
