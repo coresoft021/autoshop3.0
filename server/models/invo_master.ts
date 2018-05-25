@@ -61,6 +61,10 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       type: Sequelize.BOOLEAN,
       allowNull: true
     },
+       IS_DELETED: {
+      type: Sequelize.BOOLEAN,
+      allowNull: true
+    },
   
   }, {
     tableName: 'tas_invoice_master',
