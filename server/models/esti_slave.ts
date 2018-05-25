@@ -30,11 +30,11 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
     },
        
       NET_PRICE: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.FLOAT,
       allowNull: false
     },
       TAX: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.FLOAT,
       allowNull: true
     },
      UNIT: {
@@ -46,15 +46,15 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       allowNull: true
     },
        DISCOUNT_AMT: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.FLOAT,
       allowNull: true
     },
       TOTAL_NET: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.FLOAT,
       allowNull: true
     },
         TOTAL_GROSS: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.FLOAT,
       allowNull: true
     },
   
