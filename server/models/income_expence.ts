@@ -31,16 +31,16 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       allowNull: true
     },
      TOTAL_AMOUNT: {
-      type: Sequelize.INTEGER(25),
+      type: Sequelize.FLOAT,
       allowNull: false
     },
      
     TOTAL_PAYED: {
-      type: Sequelize.INTEGER(25),
+      type: Sequelize.FLOAT,
       allowNull: true
     },
     TOTAL_DUE: {
-      type: Sequelize.INTEGER(25),
+      type: Sequelize.FLOAT,
       allowNull: true
     },
      IS_PARTIAL_PAY: {
