@@ -88,6 +88,21 @@ const Op = Sequelize.Op;
    })
 
 
+ publicRouter.post('/delete_invoice', (request: Request, response: Response) => {
+   
+    Tas_invoice_master.update({
+      
+         IS_DELETED : true
+                  
+                  } , { 
+                          where: { INVOICE_NUMBER:  request.body.invo_number } })
+
+                        }
+                   })
+  
+
+
+
 publicRouter.post('/update_invoice', (request: Request, response: Response) => {
 
   Tas_income_expence.update({ 
