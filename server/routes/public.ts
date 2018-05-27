@@ -68,7 +68,8 @@ publicRouter.post('/post_invoice', (request: Request, response: Response) => {
                              DISCOUNT_PER : request.body.items[index].DISCOUNT_PER,
                              DISCOUNT_AMT : request.body.items[index].DISCOUNT_AMT,
                              TOTAL_NET : request.body.items[index].TOTAL_NET,
-                             TOTAL_GROSS : request.body.items[index].TOTAL_GROSS
+                             TOTAL_GROSS : request.body.items[index].TOTAL_GROSS,
+                             IS_DELETED : false
                         })
    }
     
