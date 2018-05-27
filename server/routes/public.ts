@@ -135,7 +135,7 @@ publicRouter.post('/post_invoice', (request: Request, response: Response) => {
  
    
       Tas_invo_slave.findAll({
-        where: { createdAt: {[Op.between]:  [request.body.from_date ,  request.body.to_date ]}}
+        where: { createdAt: {[Op.between]:  [request.body.from_date ,  request.body.to_date ]} , IS_DELETED : {[Op.ne]  : true }  }
                                 })
          .then(users=> 
               {
