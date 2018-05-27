@@ -176,7 +176,7 @@ publicRouter.post('/post_invoice', (request: Request, response: Response) => {
   where: { INVOICE_NUMBER:  request.body.invo_number } })
 
 
- Tas_invo_slave.updateAll({ 
+ Tas_invo_slave.update({ 
                                         IS_DELETED : true,
 }, {
   
