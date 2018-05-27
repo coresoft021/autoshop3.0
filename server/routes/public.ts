@@ -33,7 +33,7 @@ publicRouter.post('/post_invoice', (request: Request, response: Response) => {
                                         TOTAL_DUE    :request.body.total_due,
                                         IS_PARTIAL_PAY : request.body.is_partial_pay,
                                         REMARKS : request.body.remarks,
-                                        TRAN_TYPE : 1,
+                                        TRAN_TYPE : 1
                                        
                                         })
   
@@ -50,7 +50,8 @@ publicRouter.post('/post_invoice', (request: Request, response: Response) => {
          DISCOUNT_TOTAL  :request.body.discount_total,
          TOTAL_PAYED   : request.body.total_payed,
          TOTAL_DUE    :request.body.total_due,
-         IS_PARTIAL_PAY : request.body.is_partial_pay
+         IS_PARTIAL_PAY : request.body.is_partial_pay,
+         IS_DELETED : false
  })
     
    for (var index = 0; index < request.body.length; index++) {
