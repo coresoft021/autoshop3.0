@@ -57,6 +57,10 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       type: Sequelize.FLOAT,
       allowNull: true
     },
+      IS_DELETED: {
+      type: Sequelize.BOOLEAN,
+      allowNull: true
+    },
   
   }, {
     tableName: 'tas_invoice_slave',
