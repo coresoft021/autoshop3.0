@@ -87,7 +87,7 @@ publicRouter.post('/post_invoice', (request: Request, response: Response) => {
    
       Tas_invoice_master.findAll({
          attributes: ['INVOICE_NUMBER', 'CUSTOMER_NAME','GROSS_TOTAL', 'TOTAL_PAYED','TOTAL_DUE'] ,
-        where: { IS_PARTIAL_PAY:  true  }
+        where: { IS_PARTIAL_PAY:  true , IS_DELETED : {[Op.ne]  : true } }
                                 })
          .then(users=> 
               {
