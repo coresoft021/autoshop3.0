@@ -17,7 +17,7 @@ const Op = Sequelize.Op;
 
 publicRouter.post('/post_invoice', (request: Request, response: Response) => {
 
-    Tas_invoice_master.findOne({ where: { INVOICE_NUMBER:  request.body.invoice_number } }).then(person => {
+    Tas_invoice_master.findOne({ where: { INVOICE_NUMBER:  request.body.INVOICE_NUMBER } }).then(person => {
 
   if(person){
   
@@ -194,7 +194,7 @@ publicRouter.post('/update_invoice', (request: Request, response: Response) => {
 }, {
   
   
-  where: { INVOICE_NUMBER:  request.body.invoice_number } })
+  where: { INVOICE_NUMBER:  request.body.INVOICE_NUMBER } })
            
  Tas_invoice_master.update({
          CUSTOMER_NAME  : request.body.cus_name,
@@ -211,7 +211,7 @@ publicRouter.post('/update_invoice', (request: Request, response: Response) => {
          IS_PARTIAL_PAY : request.body.is_partial_pay
                   
                   } , { 
-                          where: { INVOICE_NUMBER:  request.body.invoice_number } })
+                          where: { INVOICE_NUMBER:  request.body.INVOICE_NUMBER } })
   
       var len = request.body.length - 1 ;
     
@@ -230,7 +230,7 @@ publicRouter.post('/update_invoice', (request: Request, response: Response) => {
                              TOTAL_NET : request.body.items[index].TOTAL_NET,
                             TOTAL_GROSS : request.body.items[index].TOTAL_GROSS
                         } , {
-                               where: { TAS_MASTER_ID:  request.body.invoice_number , SI_NO : request.body.items[index].SI_NO } })
+                               where: { TAS_MASTER_ID:  request.body.INVOICE_NUMBER , SI_NO : request.body.items[index].SI_NO } })
                              
                              
    }
@@ -299,7 +299,7 @@ publicRouter.post('/post_estimate', (request: Request, response: Response) => {
   
   
       Tas_income_expence.create({             
-                                        INVOICE_NUMBER : request.body.invoice_number,
+                                        INVOICE_NUMBER : request.body.INVOICE_NUMBER,
                                         TOTAL_AMOUNT : request.body.sub_total,
                                         TAX_COLLECTED      : request.body.total_tax,
                                         TOTAL_PAYED   : request.body.total_payed,
@@ -311,7 +311,7 @@ publicRouter.post('/post_estimate', (request: Request, response: Response) => {
                                         })
   
     Tas_estimate_master.create({
-         INVOICE_NUMBER : request.body.invoice_number,
+         INVOICE_NUMBER : request.body.INVOICE_NUMBER,
          CUSTOMER_NAME  : request.body.cus_name,
          CUSTOMER_ADDRESS    : request.body.cus_address,
          CUSTOMER_PHONE  : request.body.cus_phone,
@@ -335,7 +335,7 @@ publicRouter.post('/post_estimate', (request: Request, response: Response) => {
                              TAX : request.body.items[index].TAX,
                              UNIT : request.body.items[index].UNIT,
                              QUANTITY: request.body.items[index].QUANTITY,
-                             TAS_MASTER_ID: request.body.invoice_number,
+                             TAS_MASTER_ID: request.body.INVOICE_NUMBER,
                              NET_PRICE: request.body.items[index].NET_PRICE,
                              DISCOUNT_PER : request.body.items[index].DISCOUNT_PER,
                              DISCOUNT_AMT : request.body.items[index].DISCOUNT_AMT,
