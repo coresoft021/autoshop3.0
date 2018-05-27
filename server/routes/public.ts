@@ -26,7 +26,7 @@ publicRouter.post('/post_invoice', (request: Request, response: Response) => {
   else    {
     
       Tas_income_expence.create({             
-                                        INVOICE_NUMBER : request.body.invoice_number,
+                                        INVOICE_NUMBER : request.body.INVOICE_NUMBER,
                                         TOTAL_AMOUNT : request.body.sub_total,
                                         TAX_COLLECTED      : request.body.total_tax,
                                         TOTAL_PAYED   : request.body.total_payed,
@@ -38,7 +38,7 @@ publicRouter.post('/post_invoice', (request: Request, response: Response) => {
                                         })
   
     Tas_invoice_master.create({
-         INVOICE_NUMBER : request.body.invoice_number,
+         INVOICE_NUMBER : request.body.INVOICE_NUMBER,
          CUSTOMER_NAME  : request.body.cus_name,
          CUSTOMER_ADDRESS    : request.body.cus_address,
          CUSTOMER_PHONE  : request.body.cus_phone,
@@ -63,7 +63,7 @@ publicRouter.post('/post_invoice', (request: Request, response: Response) => {
                              TAX : request.body.items[index].TAX,
                              UNIT : request.body.items[index].UNIT,
                              QUANTITY: request.body.items[index].QUANTITY,
-                             TAS_MASTER_ID: request.body.invoice_number,
+                             TAS_MASTER_ID: request.body.INVOICE_NUMBER,
                              NET_PRICE: request.body.items[index].NET_PRICE,
                              DISCOUNT_PER : request.body.items[index].DISCOUNT_PER,
                              DISCOUNT_AMT : request.body.items[index].DISCOUNT_AMT,
