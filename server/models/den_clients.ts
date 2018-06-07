@@ -1,6 +1,6 @@
 import {  sequelize , Sequelize } from '../routes/dbcon';
 
-  const Tas_customers = sequelize.define('tas_customers', {
+  const Den_clients = sequelize.define('den_clients', {
     ID: {
       type: Sequelize.INTEGER(15),
       allowNull: false,
@@ -32,9 +32,9 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
     },
   
   }, {
-    tableName: 'tas_customers',
+    tableName: 'den_clients',
      timestamps: false
   });
 
 
-export {Tas_customers};
+export {Den_clients};
