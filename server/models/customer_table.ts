@@ -20,11 +20,7 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       allowNull: true
     },
     
-    TIN: {
-      type: Sequelize.STRING(15),
-      allowNull: true
-    },
-    
+      
      PHONE_NUMBER: {
       type: Sequelize.STRING(15),
       allowNull: true
