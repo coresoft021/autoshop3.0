@@ -42,18 +42,6 @@ publicRouter.post('/add_new_client', (request: Request, response: Response) => {
  })
     });
 
- publicRouter.get('/list_invoices', (request: Request, response: Response) => {
- 
-   
-  Tas_invoice_master.findAll({
-  
- }).
-then(users => {
-  response.send(users);
-  });
-
-});
-
                           
  
 
