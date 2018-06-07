@@ -22,7 +22,7 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
     
       
      PHONE_NUMBER: {
-      type: Sequelize.STRING(15),
+      type: Sequelize.INTEGER(12),
       allowNull: true
     },
     
