@@ -32,6 +32,10 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       type: Sequelize.STRING,
       allowNull: false
     },
+          STATUS: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
      
   
   }, {
