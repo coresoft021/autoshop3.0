@@ -1,7 +1,7 @@
 import { Request, Response, Router } from "express";
 import { Tas_users } from '../models/tas_users';
 import { Den_clients } from '../models/den_clients';
-
+import { Den_orders } from '../models/den_orders';
 import { Sequelize, sequelize } from './dbcon';
 const publicRouter: Router = Router();
 const Op = Sequelize.Op;
@@ -20,6 +20,25 @@ then(users => {
 
 });
 
+
+publicRouter.post('/post_new_order', (request: Request, response: Response) => {
+
+    Den_orders.create({             
+                                        ORDER_NUMBER : request.body.order_number,
+                                        CLIENT_ID : request.body.client_id,
+                                        PATIENT_NAME      : request.body.patiant_name,
+                                        SIDE    :request.body.side,
+                                        NUMBER    :request.body.number,
+                                        MATERIAL    :request.body.material,
+                                        STATUS    :request.body.status,
+                                        })
+  
+          
+       
+    return response.json({success:true, msg:'Successfully saved'});
+    
+         
+ })
 
 
 publicRouter.post('/add_new_client', (request: Request, response: Response) => {
