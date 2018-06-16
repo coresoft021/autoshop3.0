@@ -8,6 +8,20 @@ const Op = Sequelize.Op;
 
 
 
+publicRouter.get('/get_clients', (request: Request, response: Response) => {
+ 
+   
+  Den_clients.findAll({
+   attributes: { exclude: ['ID'] }
+ }).
+then(users => {
+  response.send(users);
+  });
+
+});
+
+
+
 publicRouter.post('/add_new_client', (request: Request, response: Response) => {
 
     Den_clients.findOne({ where: { CUSTOMER_NAME:  request.body.customer_name } }).then(person => {
