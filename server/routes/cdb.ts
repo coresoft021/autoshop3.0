@@ -2,7 +2,7 @@ import { Request, Response, Router } from "express";
 import { Tas_users } from '../models/tas_users';
 
 import { Den_clients } from '../models/den_clients';
-
+import { Den_orders } from '../models/den_orders';
 import { Sequelize, sequelize } from './dbcon';
 
  
@@ -24,6 +24,18 @@ dbRouter.get("/all", (request: Request, response: Response) => {
     
     
      STREET: '',
+   
+    
+    
+    })
+   })
+  
+    Den_orders.sync({force: true}).then(() => {
+   //Table created
+  return Den_clients.create({
+    
+    
+     NUMBER: 1,
    
     
     
