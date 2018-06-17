@@ -8,6 +8,18 @@ const Op = Sequelize.Op;
 
 
 
+publicRouter.get('/get_all_orders', (request: Request, response: Response) => {
+ 
+   
+  Den_orders.findAll({
+  
+ }).
+then(users => {
+  response.send(users);
+  });
+
+});
+
 publicRouter.get('/get_clients', (request: Request, response: Response) => {
  
    
