@@ -9,7 +9,7 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
     },
     CUSTOMER_NAME: {
       type: Sequelize.STRING(25),
-      allowNull: false
+      allowNull: true
     },
     STREET: {
       type: Sequelize.STRING(25),
@@ -22,7 +22,7 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
     
       
      PHONE_NUMBER: {
-      type: Sequelize.INTEGER(13),
+      type: Sequelize.INTEGER(10),
       allowNull: true
     },
     
