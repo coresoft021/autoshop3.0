@@ -12,7 +12,7 @@ publicRouter.get('/get_clients', (request: Request, response: Response) => {
  
    
   Den_clients.findAll({
-   attributes: { exclude: ['ID'] }
+  
  }).
 then(users => {
   response.send(users);
