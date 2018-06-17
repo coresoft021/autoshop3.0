@@ -20,6 +20,17 @@ then(users => {
 
 });
 
+  publicRouter.post('/get_order_number', (request: Request, response: Response) => {
+    Den_orders.count().then(c => {
+           response.json({
+                                  text: "counted",
+                                  count: c,
+                      });
+              
+            })
+   
+   })
+
 
 publicRouter.post('/post_new_order', (request: Request, response: Response) => {
 
