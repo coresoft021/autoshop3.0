@@ -49,7 +49,7 @@ publicRouter.post('/post_new_order', (request: Request, response: Response) => {
     Den_orders.create({             
                                         ORDER_NUMBER : request.body.order_number,
                                         CLIENT_ID : request.body.client_id,
-                                        PATIENT_NAME      : request.body.patiant_name,
+                                        PATIANT_NAME      : request.body.patiant_name,
                                         SIDE    :request.body.selectedSide,
                                         NUMBER    :request.body.selectedNumber,
                                         MATERIAL    :request.body.selectedMaterial,
