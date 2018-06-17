@@ -8,26 +8,26 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       autoIncrement: true
     },
     CUSTOMER_NAME: {
-      type: Sequelize.STRING(25),
+      type: Sequelize.STRING(45),
       allowNull: true
     },
     STREET: {
-      type: Sequelize.STRING(25),
+      type: Sequelize.STRING(45),
       allowNull: true
     },
      CITY: {
-      type: Sequelize.STRING(25),
+      type: Sequelize.STRING(45),
       allowNull: true
     },
     
       
      PHONE_NUMBER: {
-      type: Sequelize.INTEGER(10),
+      type: Sequelize.INTEGER,
       allowNull: true
     },
     
        E_MAIL: {
-      type: Sequelize.STRING(35),
+      type: Sequelize.STRING(45),
       allowNull: true
     },
   
