@@ -9,32 +9,32 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
     },
     ORDER_NUMBER: {
       type: Sequelize.INTEGER,
-      allowNull: false
+      allowNull: true
     },
     CLIENT_ID: {
       type: Sequelize.INTEGER,
-      allowNull: false
+      allowNull: true
     },
       PATIANT_NAME: {
       type: Sequelize.STRING,
-      allowNull: false
+      allowNull: true
     },
     
     SIDE: {
       type: Sequelize.STRING,
-      allowNull: false
+      allowNull: true
     },
     NUMBER: {
       type: Sequelize.INTEGER,
-      allowNull: false
+      allowNull: true
     },
       MATERIAL: {
       type: Sequelize.STRING,
-      allowNull: false
+      allowNull: true
     },
           STATUS: {
       type: Sequelize.STRING,
-      allowNull: false
+      allowNull: true
     },
      
   
