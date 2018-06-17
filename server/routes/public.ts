@@ -38,10 +38,10 @@ publicRouter.post('/post_new_order', (request: Request, response: Response) => {
                                         ORDER_NUMBER : request.body.order_number,
                                         CLIENT_ID : request.body.client_id,
                                         PATIENT_NAME      : request.body.patiant_name,
-                                        SIDE    :request.body.side,
-                                        NUMBER    :request.body.number,
-                                        MATERIAL    :request.body.material,
-                                        STATUS    :request.body.status,
+                                        SIDE    :request.body.selectedSide,
+                                        NUMBER    :request.body.selectedNumber,
+                                        MATERIAL    :request.body.selectedMaterial,
+                                        STATUS    :request.body.selectedStatus,
                                         })
   
           
