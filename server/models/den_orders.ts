@@ -40,7 +40,7 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
   
   }, {
     tableName: 'den_orders',
-     timestamps: false
+     timestamps: true
   });
 
 
