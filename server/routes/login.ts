@@ -71,14 +71,14 @@ mysqldump({
 
 
   loginRouter.post('/server_check', (request: Request, response: Response) => {
-   var username = 'a'
-   var password = 's'
-   var mac = '54:53:ED:2F:6F:6E' 
+   var username = 'coresoft'
+   var password = 'icon'
+   
     Tas_users.findOne({
   where: {
     USER_NAME: username,
     PASSWORD: password,
-    MAC : mac
+    
     }
 }).then(function(result){
   
