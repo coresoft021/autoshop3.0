@@ -1,56 +1,115 @@
-import { pbkdf2, randomBytes } from "crypto";
-import { NextFunction, Request, Response, Router } from "express";
-import { sign } from "jsonwebtoken";
-import { digest, length, secret } from "../config";
+import { Request, Response, Router } from "express";
+import { Sequelize, sequelize } from './dbcon';
+import { Tas_users } from '../models/tas_users';
+import mysqldump  from 'mysqldump'
 
 const loginRouter: Router = Router();
+userRouter.get("/", (request: Request, response: Response) => {
 
-const user = {
-    hashedPassword: "6fb3a68cb5fe34d0c2c9fc3807c8fa9bc0e7dd10023065ea4233d40a2d6bb4a" +
-    "7e336a82f48bcb5a7cc95b8a590cf03a4a07615a226d09a89420a342584a" +
-    "a28748336aa0feb7ac3a12200d13641c8f8e26398cfdaf268dd68746982bcf" +
-    "59415670655edf4e9ac30f6310bd2248cb9bc185db8059fe979294dd3611fdf28c2b731",
-    salt: "OxDZYpi9BBJUZTTaC/yuuF3Y634YZ90KjpNa+Km4qGgZXGI6vhSWW0T91" +
-    "rharcQWIjG2uPZEPXiKGnSAQ73s352aom56AIYpYCfk7uNsd+7AzaQ6dxTnd9AzCCdIc/J" +
-    "62JohpHPJ5eGHUJJy3PAgHYcfVzvBHnIQlTJCQdQAonQ=",
-    username: "john",
-};
+  response.json('ji');
+});
 
-loginRouter.post("/signup", (request: Request, response: Response, next: NextFunction) => {
-    if (!request.body.hasOwnProperty("password")) {
-        const err = new Error("No password");
-        return next(err);
+userRouter.get("/backup", (request: Request, response: Response) => {
+mysqldump({
+    connection: {
+        host: 'localhost',
+        user: 'root',
+        password: 'ifelseif',
+        database: 'papercups',
+    },
+    dumpToFile: './papercups.sql',
+}).then(function(backup){
+   if(backup)
+   {
+     response.json('Backup completed');
+   }
+  else if(Error)
+  {
+     response.json('Error');
+  }
+
+})
+ 
+
+});
+
+
+ userRouter.post('/login_check', (request: Request, response: Response) => {
+   var username = request.body.username;
+   var password = request.body.password;
+    
+    Tas_users.findOne({
+  where: {
+    USER_NAME: request.body.username,
+    PASSWORD: request.body.password
     }
+}).then(function(result){
+  
+                                                if(result)
+                                                { 
+                                                    if(result.IS_ADMIN === true)
+                                                    {
+                                                        return response.json({success:true, msg:'Admin logged'});
+                                                       }
+                                                          else
+                                                {
+                                                     return response.json({success:true, msg:'user logged'});   }
 
-    const salt = randomBytes(128).toString("base64");
+                                                }   
+                                                else
+                                                {
 
-    pbkdf2(request.body.password, salt, 10000, length, digest, (err: Error, hash: Buffer) => {
-        response.json({
-            hashed: hash.toString("hex"),
-            salt,
-        });
-    });
-});
+                                                return response.json({success: false, msg: 'Authentication failed'});
+                                                }    
+                         });
+      
+   
+ 
 
-// login method
-loginRouter.post("/", (request: Request, response: Response, next: NextFunction) => {
+   
+ });
 
-    pbkdf2(request.body.password, user.salt, 10000, length, digest, (err: Error, hash: Buffer) => {
-        if (err) {
-            console.error(err);
-        }
 
-        // check if password is active
-        if (hash.toString("hex") === user.hashedPassword) {
+  userRouter.post('/server_check', (request: Request, response: Response) => {
+   var username = 'a'
+   var password = 's'
+   var mac = '54:53:ED:2F:6F:6E' 
+    Tas_users.findOne({
+  where: {
+    USER_NAME: username,
+    PASSWORD: password,
+    MAC : mac
+    }
+}).then(function(result){
+  
+                                                if(result)
+                                                { 
+                                                    if(result.IS_ADMIN === true)
+                                                    {
+                                                        return response.json({ msg:'server running'});
+                                                       }
+                                                          else
+                                                {
+                                                     return response.json({ msg:'waiting'});   }
 
-            const token = sign(Object.assign({}, { user: user.username, permissions: [] }), secret, { expiresIn: "7d" });
-            response.json({jwt: token});
+                                                }   
+                                                else
+                                                {
 
-        } else {
-            response.json({message: "Wrong password"});
-        }
+                                                response.status(403).send({msg: 'failed'});
+                                                }    
+                         });
+      
+   
+ 
 
-    });
-});
+   
+ });
 
 export { loginRouter };
+
+
+
+
+
+
