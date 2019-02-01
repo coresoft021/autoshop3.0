@@ -4,12 +4,12 @@ import { Tas_users } from '../models/tas_users';
 import mysqldump  from 'mysqldump'
 
 const loginRouter: Router = Router();
-userRouter.get("/", (request: Request, response: Response) => {
+loginRouter.get("/", (request: Request, response: Response) => {
 
   response.json('ji');
 });
 
-userRouter.get("/backup", (request: Request, response: Response) => {
+loginRouter.get("/backup", (request: Request, response: Response) => {
 mysqldump({
     connection: {
         host: 'localhost',
@@ -34,7 +34,7 @@ mysqldump({
 });
 
 
- userRouter.post('/login_check', (request: Request, response: Response) => {
+ loginRouter.post('/login_check', (request: Request, response: Response) => {
    var username = request.body.username;
    var password = request.body.password;
     
@@ -70,7 +70,7 @@ mysqldump({
  });
 
 
-  userRouter.post('/server_check', (request: Request, response: Response) => {
+  loginRouter.post('/server_check', (request: Request, response: Response) => {
    var username = 'a'
    var password = 's'
    var mac = '54:53:ED:2F:6F:6E' 
