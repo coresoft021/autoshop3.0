@@ -30,7 +30,7 @@ if (app.get("env") === "production") {
 }
 
 app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname, '/../public/index.html'));
+    res.sendFile(path.join(__dirname, '/../public/core/index.html'));
   
 });
 
