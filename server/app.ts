@@ -29,6 +29,10 @@ if (app.get("env") === "production") {
   app.use(express.static(path.join(__dirname, "/../client")));
 }
 
+app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname + '/dist/core/index.html'));
+});
+
 // catch 404 and forward to error handler
 app.use((req: express.Request, res: express.Response, next) => {
   const err = new Error("Not Found");
