@@ -11,7 +11,10 @@ const dbRouter: Router = Router();
 
 
 
-
+dbRouter.get("/about", (request: Request, response: Response) => {
+  
+return response.json({success:true, msg: 'found'});
+   })
 
 
 
