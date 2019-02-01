@@ -30,7 +30,7 @@ if (app.get("env") === "production") {
 }
 
 app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname + '/dist/core/index.html'));
+    res.sendFile(path.join(__dirname, '/dist/core/index.html'));
 });
 
 // catch 404 and forward to error handler
