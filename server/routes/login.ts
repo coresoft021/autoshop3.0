@@ -15,9 +15,9 @@ mysqldump({
         host: 'localhost',
         user: 'root',
         password: 'ifelseif',
-        database: 'papercups',
+        database: 'sreedhar',
     },
-    dumpToFile: './papercups.sql',
+    dumpToFile: './sreedhar.sql',
 }).then(function(backup){
    if(backup)
    {
