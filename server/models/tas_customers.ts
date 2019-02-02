@@ -11,11 +11,11 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       type: Sequelize.STRING,
       allowNull: true
     },
-    STREET: {
+    HOUSE_NAME: {
       type: Sequelize.STRING,
       allowNull: true
     },
-     CITY: {
+     ADDRESS: {
       type: Sequelize.STRING,
       allowNull: true
     },
