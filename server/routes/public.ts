@@ -1,6 +1,7 @@
 import { Request, Response, Router } from "express";
 import { Tas_users } from '../models/tas_users';
 import { Tas_customers } from '../models/tas_customers';
+import { Tas_products } from '../models/tas_products';
 import { Sequelize, sequelize } from './dbcon';
 const publicRouter: Router = Router();
 const Op = Sequelize.Op;
