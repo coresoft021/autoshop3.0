@@ -7,6 +7,14 @@ const publicRouter: Router = Router();
 const Op = Sequelize.Op;
 
 
+      publicRouter.get('/get_invoice_number_b2b', (request: Request, response: Response) => {
+         B2b_invoice_master.max('INVOICE_NUMBER', {where : {'IS_B2B': true } }).then(result => {
+         if(result)
+          { response.json({text: "counted",count: result });  }
+        else {  response.json({text: "counted",count: 0});  }
+       })
+     })
+
  publicRouter.get('/get_product_list', (request: Request, response: Response) => {
  
    
