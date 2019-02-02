@@ -1,7 +1,7 @@
 import { Request, Response, Router } from "express";
 import { Tas_users } from '../models/tas_users';
 import { Tas_customers } from '../models/tas_customers';
-
+import { Tas_products } from '../models/tas_products';
 
 
 import { Sequelize, sequelize } from './dbcon';
@@ -13,11 +13,11 @@ const dbRouter: Router = Router();
 dbRouter.get("/all_1", (request: Request, response: Response) => {
 
 
-     Tas_customers.sync({force: true}).then(() => {
+     Tas_products.sync({force: true}).then(() => {
    //Table created
-  return Tas_customers.create({
+  return Tas_products.create({
     
-     CUSTOMER_NAME : 'a',
+     PRODUCT_NAME : 'gold',
      
       
     
