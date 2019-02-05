@@ -10,11 +10,7 @@ var numberToText = require('number2text');
 
 
  publicRouter.post('/number_to_word', (request: Request, response: Response) => {
- 
-
-                          // var words = toWords(request.body.number_to_convert);
-                       var defaultCurrency = numberToText(request.body.number_to_convert,'',true);
-                         var result    =   numbered.stringify(request.body.number_to_convert);
+                        var defaultCurrency = numberToText(request.body.number_to_convert,'',true);
                           return response.json({success:true, msg: defaultCurrency });
    
    })
