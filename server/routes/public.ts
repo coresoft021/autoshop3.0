@@ -3,11 +3,21 @@ import { Tas_users } from '../models/tas_users';
 import { Tas_customers } from '../models/tas_customers';
 import { Tas_products } from '../models/tas_products';
 import { B2b_invoice_master } from '../models/b2b_master';
-
 import { Sequelize, sequelize } from './dbcon';
 const publicRouter: Router = Router();
 const Op = Sequelize.Op;
+var numberToText = require('number2text');
 
+
+ publicRouter.post('/number_to_word', (request: Request, response: Response) => {
+ 
+
+                          // var words = toWords(request.body.number_to_convert);
+                       var defaultCurrency = numberToText(request.body.number_to_convert,'',true);
+                         var result    =   numbered.stringify(request.body.number_to_convert);
+                          return response.json({success:true, msg: defaultCurrency });
+   
+   })
 
       publicRouter.get('/get_invoice_number_b2b', (request: Request, response: Response) => {
          B2b_invoice_master.max('INVOICE_NUMBER', {where : {'IS_B2B': true } }).then(result => {
