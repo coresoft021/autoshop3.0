@@ -4,6 +4,10 @@ import { Tas_users } from '../models/tas_users';
 import { Tas_customers } from '../models/tas_customers';
 import { Tas_products } from '../models/tas_products';
 import { B2b_invoice_master } from '../models/b2b_master';
+import { Tas_income_expence } from '../models/income_expence';
+import { B2b_invoice_master } from '../models/b2b_master';
+import { B2b_invo_slave } from '../models/b2b_slave';
+ 
 import { Sequelize, sequelize } from './dbcon';
 const postRouter: Router = Router();
 const Op = Sequelize.Op;
