@@ -5,12 +5,12 @@ import { Tas_customers } from '../models/tas_customers';
 import { Tas_products } from '../models/tas_products';
 import { B2b_invoice_master } from '../models/b2b_master';
 import { Sequelize, sequelize } from './dbcon';
-const publicRouter: Router = Router();
+const postRouter: Router = Router();
 const Op = Sequelize.Op;
 
 
 
-publicRouter.post('/post_invoice_b2b', (request: Request, response: Response) => {
+postRouter.post('/post_invoice_b2b', (request: Request, response: Response) => {
 
 
     B2b_invoice_master.findOne({ where: { INVOICE_NUMBER:  request.body.INVOICE_NUMBER , IS_B2B : true } }).then(person => {
@@ -107,3 +107,4 @@ publicRouter.post('/post_invoice_b2b', (request: Request, response: Response) =>
           return response.json({success:true, msg:'Successfully saved'});
     })
 
+export { postRouter };
