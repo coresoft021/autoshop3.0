@@ -7,6 +7,7 @@ var cors = require('cors');
 
 import { loginRouter } from "./routes/login";
 import { publicRouter } from "./routes/public";
+import { postRouter } from "./routes/post";
 import { dbRouter } from "./routes/cdb";
 const app: express.Application = express();
 
@@ -21,6 +22,7 @@ app.use(urlencoded({ extended: true }));
 
 app.use("/api/login", loginRouter);
 app.use("/api/public", publicRouter);
+app.use("/api/post", postRouter);
 app.use("/api/cdb", dbRouter);
 
 if (app.get("env") === "production") {
