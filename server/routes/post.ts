@@ -32,6 +32,27 @@ if(person) {
   
 })
 
+postRouter.post('/add_new_greeting', (request: Request, response: Response) => {
+  
+  Tas_greeting .findOne({ where: { GREETTING:  request.body.greet } }).then(person => {
+
+if(person) {  
+           
+              return response.json({success:false, msg:'Greeting Already existed'});
+             
+        }
+ else {
+            Tas_greeting.create({
+                                  GREETTING : request.body.greet
+                               }).then(decx => {  return response.json({success:true, msg:'Greeting Added'}); })
+   
+   
+             
+      } 
+  })
+  
+})
+
 
 
 postRouter.post('/change_gold_rate', (request: Request, response: Response) => {
