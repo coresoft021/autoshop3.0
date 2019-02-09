@@ -4,6 +4,7 @@ import { Tas_customers } from '../models/tas_customers';
 import { Tas_products } from '../models/tas_products';
 import { B2b_invoice_master } from '../models/b2b_master';
 import { Sequelize, sequelize } from './dbcon';
+import { Tas_greeting } from '../models/greeting';
 const publicRouter: Router = Router();
 const Op = Sequelize.Op;
 var numberToText = require('number2text');
@@ -38,7 +39,7 @@ then(users => {
  publicRouter.get('/get_greetings', (request: Request, response: Response) => {
  
    
-  Tas_products.findAll({
+  Tas_greeting.findAll({
   
  }).
 then(users => {
