@@ -5,6 +5,8 @@ import { Tas_products } from '../models/tas_products';
 import { B2b_invoice_master } from '../models/b2b_master';
 import { B2b_invo_slave } from '../models/b2b_slave';
 import { Tas_income_expence  } from '../models/income_expence';
+import { Tas_greeting  } from '../models/greeting';
+
 
 
 import { Sequelize, sequelize } from './dbcon';
@@ -13,7 +15,7 @@ import { Sequelize, sequelize } from './dbcon';
 
 const dbRouter: Router = Router();
 
-dbRouter.get("/all_1", (request: Request, response: Response) => {
+dbRouter.get("/all", (request: Request, response: Response) => {
 
 
      Tas_products.sync({force: true}).then(() => {
@@ -40,6 +42,15 @@ dbRouter.get("/all_1", (request: Request, response: Response) => {
      INVOICE_NUMBER_B2B : 1,   
      })
      })
+  
+   Tas_greeting.sync({force: true}).then(() => {
+   //Table created
+  return Tas_greeting.create({
+    
+     GREETTING : 'a',
+       
+     })
+   })
 
 
  return response.json({success:true, msg: 'found'});
@@ -54,19 +65,15 @@ return response.json({success:true, msg: 'found'});
 
 
 
-dbRouter.get("/all", (request: Request, response: Response) => {
+dbRouter.get("/one", (request: Request, response: Response) => {
   
   
-       Tas_users.sync({force: true}).then(() => {
+       Tas_greeting.sync({force: true}).then(() => {
    //Table created
-  return Tas_users.create({
+  return Tas_greeting.create({
     
-     USER_NAME : 'a',
-     PASSWORD: 's',
-     IS_ADMIN: true,
-    
-      
-    
+     GREETTING : 'a',
+       
      })
       .then(users => { response.json({  msg: "Table created"  });
 
