@@ -12,9 +12,23 @@ const postRouter: Router = Router();
 const Op = Sequelize.Op;
 
 
-
-
 postRouter.post('/change_gold_rate', (request: Request, response: Response) => {
+  
+  Tas_products.findAll({ }).then(row => {
+
+if(row) {  
+               
+                   return response.json({success:true, msg:'Rate Updated'});   
+               
+        }
+ else {
+         return response.json({success:false, msg:'No Item to be Updated'});
+      } 
+  })
+  
+})
+
+postRouter.post('/change_gold_rate1', (request: Request, response: Response) => {
   
   Tas_products.findAll({ }).then(row => {
 
