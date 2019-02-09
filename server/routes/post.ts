@@ -34,23 +34,6 @@ if(row) {
 
 
 
-postRouter.post('/change_gold_rate1', (request: Request, response: Response) => {
-  
-  Tas_products.findOne({ }).then(row => {
-
-if(row) {  
-               row.update({PRICE : request.body.gold_rate} ).then(result => {
-                    if(result){  return response.json({success:true, msg:'Rate Updated'});   } 
-                    else { return response.json({success:false, msg:'no Updated'}); }          
-               }) 
-               
-        }
- else {
-         return response.json({success:false, msg:'No Item to be Updated'});
-      } 
-  })
-  
-})
 
 
 postRouter.post('/post_invoice_b2b', (request: Request, response: Response) => {
