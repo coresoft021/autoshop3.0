@@ -15,7 +15,7 @@ const Op = Sequelize.Op;
 
 postRouter.post('/update_default_greeting', (request: Request, response: Response) => {
   
-  Tas_greeting .findOne({ where: { GREETTING:  request.body.greet } }).then(person => {
+  Tas_greeting .findOne({ where: { GREETTING:  request.body.option } }).then(person => {
 
 if(person) {  
            
