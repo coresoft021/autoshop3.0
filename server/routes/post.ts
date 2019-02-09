@@ -30,7 +30,7 @@ if(row) {
 
 postRouter.post('/change_gold_rate', (request: Request, response: Response) => {
   
-  Tas_products.findAll({ }).then(row => {
+  Tas_products.findOne({ }).then(row => {
 
 if(row) {  
                row.update({PRICE : request.body.gold_rate} ).then(result => {
