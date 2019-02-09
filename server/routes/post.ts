@@ -11,15 +11,18 @@ import { Sequelize, sequelize } from './dbcon';
 const postRouter: Router = Router();
 const Op = Sequelize.Op;
 
-
-postRouter.post('/change_gold_rate1', (request: Request, response: Response) => {
+postRouter.post('/change_gold_rate', (request: Request, response: Response) => {
   
   Tas_products.findAll({ }).then(row => {
 
 if(row) {  
-                   row.update({PRICE : request.body.gold_rate})
-                   return response.json({success:true, msg:'Rate Updated'});   
-               
+             var len = row.length;
+             for (var i = 0; i<len; i++) {
+               row[i].update({PRICE : request.body.gold_rate} ).then(result => {
+                    if(result){  return response.json({success:true, msg:'Rate Updated'});   } 
+                    else { return response.json({success:false, msg:'no Updated'}); }          
+               }) 
+             }
         }
  else {
          return response.json({success:false, msg:'No Item to be Updated'});
@@ -28,7 +31,10 @@ if(row) {
   
 })
 
-postRouter.post('/change_gold_rate', (request: Request, response: Response) => {
+
+
+
+postRouter.post('/change_gold_rate1', (request: Request, response: Response) => {
   
   Tas_products.findOne({ }).then(row => {
 
