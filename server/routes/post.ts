@@ -43,7 +43,8 @@ if(person) {
         }
  else {
             Tas_greeting.create({
-                                  GREETTING : request.body.greet
+                                  GREETTING : request.body.greet,
+                                  DEFAULT : false
                                }).then(decx => {  return response.json({success:true, msg:'Greeting Added'}); })
    
    
