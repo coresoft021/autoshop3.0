@@ -11,6 +11,28 @@ import { Sequelize, sequelize } from './dbcon';
 const postRouter: Router = Router();
 const Op = Sequelize.Op;
 
+
+postRouter.post('/update_default_greeting', (request: Request, response: Response) => {
+  
+  Tas_greeting .findOne({ where: { GREETTING:  request.body.greet } }).then(person => {
+
+if(person) {  
+           
+               person.update({DEFAULT : true} ).then(result => {
+                    if(result){  return response.json({success:true, msg:'Greeting Set as Default'});   } 
+                    else { return response.json({success:false, msg:'Not Updated'}); }          
+               }) 
+             
+        }
+ else {
+         return response.json({success:false, msg:'No Item to be Updated'});
+      } 
+  })
+  
+})
+
+
+
 postRouter.post('/change_gold_rate', (request: Request, response: Response) => {
   
   Tas_products.findAll({ }).then(row => {
