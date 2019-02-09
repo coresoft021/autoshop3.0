@@ -12,7 +12,7 @@ const postRouter: Router = Router();
 const Op = Sequelize.Op;
 
 
-postRouter.post('/change_gold_rate', (request: Request, response: Response) => {
+postRouter.post('/change_gold_rate1', (request: Request, response: Response) => {
   
   Tas_products.findAll({ }).then(row => {
 
@@ -28,7 +28,7 @@ if(row) {
   
 })
 
-postRouter.post('/change_gold_rate1', (request: Request, response: Response) => {
+postRouter.post('/change_gold_rate', (request: Request, response: Response) => {
   
   Tas_products.findAll({ }).then(row => {
 
