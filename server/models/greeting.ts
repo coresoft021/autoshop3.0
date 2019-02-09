@@ -11,7 +11,10 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       type: Sequelize.STRING(140),
       allowNull: true
     },
-   
+    DEFAULT: {
+      type: Sequelize.Sequelize.BOOLEAN,
+      allowNull: true
+    },
   
   }, {
     tableName: 'tas_greeting',
