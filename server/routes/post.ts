@@ -184,9 +184,8 @@ postRouter.post('/post_invoice_b2b', (request: Request, response: Response) => {
                                                            CUSTOMER_NAME  : request.body.customer_name,
                                                            ADDRESS : request.body.address,
                                                            CITY : request.body.city,
-                                                           GSTIN : request.body.gstin,
                                                            PHONE : request.body.phone,
-                                                            PHONE2 : request.body.phone2,
+                                                           PHONE2 : request.body.phone2,
                                                            })                       
 
 
