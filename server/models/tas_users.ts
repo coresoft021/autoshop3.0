@@ -15,11 +15,7 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       type: Sequelize.STRING(15),
       allowNull: true
     },
-      MAC: {
-      type: Sequelize.STRING(18),
-      allowNull: true
-    },
-    
+ 
     IS_ADMIN: {
       type: Sequelize.BOOLEAN,
       allowNull: true
