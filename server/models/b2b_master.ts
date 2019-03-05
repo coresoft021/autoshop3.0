@@ -39,6 +39,14 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       type: Sequelize.STRING,
       allowNull: true
     },
+           HSN_CODE: {
+      type: Sequelize.STRING,
+      allowNull: true
+    },
+           GOLD_RATE: {
+      type: Sequelize.DECIMAL(10, 2),
+      allowNull: true
+    },
    
    
       BILL_DATE : {
