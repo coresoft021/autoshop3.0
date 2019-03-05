@@ -83,6 +83,26 @@ dbRouter.get("/user_table", (request: Request, response: Response) => {
 
       })
   })
+ 
+
+dbRouter.get("/slave", (request: Request, response: Response) => {
+  
+  
+       B2b_invo_slave.sync({force: true}).then(() => {
+   //Table created
+  return B2b_invo_slave.create({
+    
+     GREETTING : 'a',
+       
+     })
+      .then(users => { response.json({  msg: "Table created"  });
+
+      })
+  
+     
+
+      })
+  })
 
 dbRouter.get("/one", (request: Request, response: Response) => {
   
