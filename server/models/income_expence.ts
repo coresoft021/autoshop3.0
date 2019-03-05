@@ -30,6 +30,11 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       type: Sequelize.FLOAT,
       allowNull: true
     },
+      CESS_COLLECTED: {
+      type: Sequelize.FLOAT,
+      allowNull: true
+    },
+    
      TOTAL_AMOUNT: {
       type: Sequelize.FLOAT,
       allowNull: true
