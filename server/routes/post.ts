@@ -13,6 +13,43 @@ const postRouter: Router = Router();
 const Op = Sequelize.Op;
 
 
+
+publicRouter.post('/add_new_product', (request: Request, response: Response) => {
+  Tas_products.findOne({ where: { PRODUCT_NAME:  request.body.product_name } }).then(person => {
+    if(person){
+               return response.json({success:true, msg:'product already existed'});
+              }
+  
+  else 
+        {
+                                     Tas_products.create({
+                                        PRODUCT_NAME: request.body.product_name,
+                                        HSN_CODE: request.body.product_code,
+                                        TAX: request.body.tax,
+                                        PRICE: request.body.price
+                                     
+                                        }).then(function(pro)  {                    
+                                                                     if (pro)   {
+                                                                            return response.json({success:true, msg:'Successfully saved'});
+
+                                                                     }                    
+                                                                    else 
+                                                                    {
+
+                                                                      return Error
+                                                                    }
+                             
+                                 })
+                          
+                    }
+  
+    })
+
+})
+
+
+
+
 postRouter.post('/update_default_greeting', (request: Request, response: Response) => {
   
   Tas_greeting .findOne({ where: { GREETTING:  request.body.option } }).then(person => {
