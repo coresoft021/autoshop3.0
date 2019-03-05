@@ -92,7 +92,7 @@ dbRouter.get("/slave", (request: Request, response: Response) => {
    //Table created
   return B2b_invo_slave.create({
     
-     GREETTING : 'a',
+     B2B_MASTER_ID : 1,
        
      })
       .then(users => { response.json({  msg: "Table created"  });
