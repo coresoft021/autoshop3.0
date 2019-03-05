@@ -63,7 +63,26 @@ return response.json({success:true, msg: 'found'});
    })
 
 
+dbRouter.get("/user_table", (request: Request, response: Response) => {
+  
+  
+       Tas_users.sync({force: true}).then(() => {
+   //Table created
+  return Tas_users.create({
+    
+     USER_NAME : 'a',
+     PASSWORD : 's',
+     IS_ADMIN : true
+       
+     })
+      .then(users => { response.json({  msg: "Table created"  });
 
+      })
+  
+     
+
+      })
+  })
 
 dbRouter.get("/one", (request: Request, response: Response) => {
   
