@@ -19,10 +19,7 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       type: Sequelize.STRING,
       allowNull: true
     },
-       HSN_CODE: {
-      type: Sequelize.STRING,
-      allowNull: true
-    },
+
     QUANTITY: {
        type: Sequelize.INTEGER,
     allowNull: true
