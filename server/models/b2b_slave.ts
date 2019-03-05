@@ -24,25 +24,33 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
        type: Sequelize.INTEGER,
     allowNull: true
     },
+     GROSS_WEIGHT: {
+       type: Sequelize.INTEGER,
+    allowNull: true
+    },
+     STONE_WEIGHT: {
+       type: Sequelize.INTEGER,
+    allowNull: true
+    },
+     NET_WEIGHT: {
+       type: Sequelize.INTEGER,
+    allowNull: true
+    },
        
-      PRICE: {
+      RATE: {
       type: Sequelize.FLOAT,
       allowNull: true
     },
-      TAX: {
-      type: Sequelize.FLOAT,
+      VAOP: {
+      type: Sequelize.INTEGER,
       allowNull: true
     },
-     UNIT: {
-      type: Sequelize.STRING,
+     STONE_VALUE: {
+      type: Sequelize.INTEGER,
       allowNull: true
     },
     
-      NET_PRICE: {
-      type: Sequelize.FLOAT,
-      allowNull: true
-    },
-        NET_TOTAL: {
+     NET_TOTAL: {
       type: Sequelize.FLOAT,
       allowNull: true
     },
