@@ -1,6 +1,6 @@
 import {  sequelize , Sequelize } from '../routes/dbcon';
 
-  const B2b_invoice_master = sequelize.define('b2b_invoice_master', {
+  const B2b_invoice_master = sequelize.define('invoice_master', {
     ID: {
       type: Sequelize.INTEGER,
       allowNull: false,
@@ -11,6 +11,11 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       type: Sequelize.INTEGER,
       allowNull: true
     },
+        CUSTOMER_ADDRESS: {
+      type: Sequelize.STRING,
+      allowNull: true
+    },
+     
     CUSTOMER_NAME: {
       type: Sequelize.STRING,
       allowNull: true
@@ -20,11 +25,7 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       allowNull: true
     },
 
-        CUSTOMER_STREET: {
-      type: Sequelize.STRING,
-      allowNull: true
-    },
-     
+    
      CUSTOMER_GST_IN: {
       type: Sequelize.STRING,
       allowNull: true
@@ -38,24 +39,8 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       type: Sequelize.STRING,
       allowNull: true
     },
-      TRANS_MODE: {
-      type: Sequelize.STRING,
-      allowNull: true
-    },
-
-      VEH_NO: {
-      type: Sequelize.STRING,
-      allowNull: true
-    },
-
-      PLACE_SUPPLY: {
-      type: Sequelize.STRING,
-      allowNull: true
-    },
-    BUNDLES : {
-     type: Sequelize.INTEGER,
-     allowNull: true
-    },
+   
+   
       BILL_DATE : {
         type : Sequelize.DATE,
         allowNull : true
@@ -71,6 +56,10 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       allowNull: true
     },
      CESS_COLLECTED: {
+      type: Sequelize.DECIMAL(10, 2),
+      allowNull: true
+    },
+      DISCOUNT_AMT: {
       type: Sequelize.DECIMAL(10, 2),
       allowNull: true
     },
@@ -108,7 +97,7 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
 
   
   }, {
-    tableName: 'b2b_invoice_master',
+    tableName: 'invoice_master',
      timestamps: true
   });
 
