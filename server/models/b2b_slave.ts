@@ -65,9 +65,9 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
     },
   
   }, {
-    tableName: 'b2b_invoice_slave',
+    tableName: 'invoice_slave',
      timestamps: true
   });
 
 
-export {invoice_slave};
+export {B2b_invo_slave };
