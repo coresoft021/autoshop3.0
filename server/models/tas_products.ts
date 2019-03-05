@@ -15,11 +15,7 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       type: Sequelize.STRING(15),
       allowNull: true
     },
-      NET_PRICE: {
-      type: Sequelize.FLOAT,
-      allowNull: true
-    },
-    
+     
     TAX: {
       type: Sequelize.FLOAT,
       allowNull: true
@@ -28,21 +24,8 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       PRICE: {
       type: Sequelize.FLOAT,
       allowNull: true
-    },
-    
-    AVAIL_QTY: {
-      type: Sequelize.INTEGER,
-      allowNull: true
-    },
-      NET_PURCHASE_PRICE: {
-      type: Sequelize.FLOAT,
-      allowNull: true
-    },
-       UNIT: {
-      type: Sequelize.STRING(10),
-      allowNull: true
-    },
-  
+    }
+ 
   }, {
     tableName: 'tas_products',
      timestamps: false
