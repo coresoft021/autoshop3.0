@@ -1,6 +1,6 @@
 import {  sequelize , Sequelize } from '../routes/dbcon';
 
-  const B2b_invo_slave = sequelize.define('b2b_invo_slave', {
+  const B2b_invo_slave = sequelize.define('invoice_slave', {
     ID: {
       type: Sequelize.INTEGER,
       allowNull: false,
@@ -70,4 +70,4 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
   });
 
 
-export {B2b_invo_slave};
+export {invoice_slave};
