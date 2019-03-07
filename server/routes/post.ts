@@ -14,7 +14,7 @@ const Op = Sequelize.Op;
 
 
 
-publicRouter.post('/add_new_product', (request: Request, response: Response) => {
+publicRouter.post('/add_product', (request: Request, response: Response) => {
   Tas_products.findOne({ where: { PRODUCT_NAME:  request.body.product_name } }).then(person => {
     if(person){
                return response.json({success:true, msg:'product already existed'});
