@@ -21,36 +21,10 @@ dbRouter.get("/all", (request: Request, response: Response) => {
      Tas_products.sync({force: true}).then(() => {
    //Table created
   return Tas_products.create({    
-     PRODUCT_NAME : 'gold',   
+     FEED_BACK_ID : 1,   
      })
      })
-       B2b_invoice_master.sync({force: true}).then(() => {
-   //Table created
-  return B2b_invoice_master.create({    
-     INVOICE_NUMBER : 1,   
-     })
-     })
-       B2b_invo_slave.sync({force: true}).then(() => {
-   //Table created
-  return B2b_invo_slave.create({    
-     B2B_MASTER_ID : 1,   
-     })
-     })
-      Tas_income_expence.sync({force: true}).then(() => {
-   //Table created
-  return Tas_income_expence.create({    
-     INVOICE_NUMBER_B2B : 1,   
-     })
-     })
-  
-   Tas_greeting.sync({force: true}).then(() => {
-   //Table created
-  return Tas_greeting.create({
-    
-     GREETTING : 'a',
-       
-     })
-   })
+
 
 
  return response.json({success:true, msg: 'found'});
