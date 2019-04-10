@@ -25,7 +25,7 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
     }
  
   }, {
-    tableName: 'tas_products',
+    tableName: 'tas_feed_master',
      timestamps: false
   });
 
