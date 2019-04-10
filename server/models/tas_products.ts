@@ -7,21 +7,19 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       primaryKey: true,
       autoIncrement: true
     },
-    PRODUCT_NAME: {
-      type: Sequelize.STRING(98),
-      allowNull: true
-    },
-    HSN_CODE: {
+     FEED_BACK_ID: {
       type: Sequelize.STRING(15),
       allowNull: true
     },
-     
-    TAX: {
-      type: Sequelize.FLOAT,
+    CUSTOMER_NAME: {
+      type: Sequelize.STRING(98),
       allowNull: true
     },
-
-      PRICE: {
+     CUSTOMER_EMAIL: {
+      type: Sequelize.STRING(98),
+      allowNull: true
+    },
+   RATING_GIVEN: {
       type: Sequelize.FLOAT,
       allowNull: true
     }
