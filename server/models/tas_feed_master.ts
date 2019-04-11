@@ -1,6 +1,6 @@
 import {  sequelize , Sequelize } from '../routes/dbcon';
 
-  const Tas_products = sequelize.define('tas_products', {
+  const Tas_feed_master = sequelize.define('tas_feed_master', {
     ID: {
       type: Sequelize.INTEGER,
       allowNull: false,
@@ -30,4 +30,4 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
   });
 
 
-export {Tas_products};
+export {Tas_feed_master};
