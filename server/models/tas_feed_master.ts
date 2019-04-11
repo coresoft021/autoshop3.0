@@ -11,11 +11,15 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       type: Sequelize.STRING(15),
       allowNull: true
     },
-    CUSTOMER_NAME: {
+      FIRST_NAME: {
       type: Sequelize.STRING(98),
       allowNull: true
     },
-     CUSTOMER_EMAIL: {
+    LAST_NAME: {
+      type: Sequelize.STRING(98),
+      allowNull: true
+    },
+     EMAIL: {
       type: Sequelize.STRING(98),
       allowNull: true
     },
