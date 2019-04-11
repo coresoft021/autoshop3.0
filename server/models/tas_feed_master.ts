@@ -7,24 +7,20 @@ import {  sequelize , Sequelize } from '../routes/dbcon';
       primaryKey: true,
       autoIncrement: true
     },
-     FEED_BACK_ID: {
-      type: Sequelize.STRING(15),
-      allowNull: true
-    },
-      FIRST_NAME: {
-      type: Sequelize.STRING(98),
+     FIRST_NAME: {
+      type: Sequelize.STRING(25),
       allowNull: true
     },
     LAST_NAME: {
-      type: Sequelize.STRING(98),
+      type: Sequelize.STRING(25),
       allowNull: true
     },
      EMAIL: {
-      type: Sequelize.STRING(98),
+      type: Sequelize.STRING(40),
       allowNull: true
     },
    RATING_GIVEN: {
-      type: Sequelize.FLOAT,
+      type: Sequelize.INTEGER,
       allowNull: true
     }
  
